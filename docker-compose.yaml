@@ -1,0 +1,96 @@
+version: '3.5'
+
+services:
+  mosquitto:
+    image: tdmproject/edge-mosquitto
+    container_name: tdm_mosquitto
+    volumes:
+      - ./configs/mosquitto/:/mosquitto/configs/
+      - ./data/mosquitto/:/mosquitto/data/
+      - ./logs/mosquitto/:/mosquitto/logs/
+    networks:
+      - tdm_edge
+    restart: always
+
+  htu21d:
+    image: tdmproject/edge-device-handler
+    container_name: tdm_htu21d
+    depends_on:
+      - mosquitto
+    devices:
+      - /dev/i2c-1
+    networks:
+      - tdm_edge
+    volumes:
+      - ./configs/tdm/:/opt/configs/
+    restart: always
+
+  feinstaub:
+    image: tdmproject/edge-sfds-handler
+    container_name: tdm_feinstaub
+    depends_on:
+      - mosquitto
+    ports:
+      - "8089:5000"
+    networks:
+      - tdm_edge
+    volumes:
+      - ./configs/tdm/:/opt/configs/
+    restart: always
+
+  iotawatt:
+    image: tdmproject/edge-iotawatt-handler
+    container_name: tdm_iotawatt
+    depends_on:
+      - mosquitto
+    ports:
+      - "8088:5000"
+    networks:
+      - tdm_edge
+    volumes:
+      - ./configs/tdm/:/opt/configs/
+    restart: always
+
+  dispatcher:
+    image: tdmproject/edge-dispatcher
+    container_name: tdm_dispatcher
+    depends_on:
+      - mosquitto
+    networks:
+      - tdm_edge
+    volumes:
+      - ./configs/tdm/:/opt/configs/
+    restart: always
+
+  influxdb:
+    image: hypriot/rpi-influxdb
+    container_name: tdm_influxdb
+    networks:
+      - tdm_edge
+    volumes:
+      - influxdb-storage:/data
+    restart: always
+
+  grafana:
+    image: fg2it/grafana-armhf:v4.1.2
+    container_name: tdm_grafana
+    ports:
+      - "80:3000"
+    networks:
+      - tdm_edge
+    volumes:
+      - influxdb-storage:/data
+      - grafana-storage:/var/lib/grafana
+      - grafana-configs:/etc/grafana
+    restart: always
+
+networks:
+  tdm_edge:
+    name: tdm_edge
+
+volumes:
+  influxdb-storage:
+  grafana-storage:
+  grafana-configs:
+
+# vim: ts=2 expandtab
