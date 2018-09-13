@@ -49,7 +49,7 @@ un’architettura scalabile di aggregazione, processamento e restituzione è
 esemplificata nella seguente figura, che mostra le diverse componenti del
 progetto TDM. 
 
-![Diagramma dei componenti TDM](../img/TDM Block Diagram ITA.png)
+![Diagramma dei componenti TDM](../img/TDM-Block-Diagram-ITA.png)
 
 La raccolta centrale dei dati provenienti dall’Edge Gateway, così come di altre
 sorgenti quali immagini satellitari, radar meteorologico, mappe e altri dati
