@@ -210,7 +210,7 @@ partendo dai primi due.
 
 Esempio di flusso dati all’interno di un handler                                  |
 ----------------------------------------------------------------------------------|
-![Esempio di flusso dati all’interno di un handler](../img/Handler Internals.png) |
+![Esempio di flusso dati all’interno di un handler](../img/Handler-Internals.png) |
 
 #### 4.5.2 IL DISPATCHER
 Il *dispatcher* è un micro-servizio in ascolto sul broker locale, o *subscriber
