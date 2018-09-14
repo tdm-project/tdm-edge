@@ -30,3 +30,4 @@ This repository contains:
 
 ### Italian Language:
 * [**REFERENCE DESIGN PER SENSORISTICA DIFFUSA**](docs/refdesign/it/refdesign.md)
+* [**MANUALE DI INSTALLAZIONE E CONFIGURAZIONE DEL PROTOTIPO DI EDGE GATEWAY**](docs/manual/it/manual.md)
