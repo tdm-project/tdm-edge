@@ -23,7 +23,7 @@ progetto TDM ed è resa disponibile su ***GITHUB*** all’indirizzo:
 
 Schema a Blocchi dell'Edge Gateway                           |
 -------------------------------------------------------------|
-![Schema a Blocchi dell'Edge Gateway](../img/EG-2018-05.png) |
+![Schema a Blocchi dell'Edge Gateway](../../img/EG-2018-05.png) |
 
 ### 4.2 I MICROSERVIZI
 In un’applicazione monolitica, tutte le funzionalità sono implementate in una
@@ -210,7 +210,7 @@ partendo dai primi due.
 
 Esempio di flusso dati all’interno di un handler                                  |
 ----------------------------------------------------------------------------------|
-![Esempio di flusso dati all’interno di un handler](../img/Handler-Internals.png) |
+![Esempio di flusso dati all’interno di un handler](../../img/Handler-Internals.png) |
 
 #### 4.5.2 IL DISPATCHER
 Il *dispatcher* è un micro-servizio in ascolto sul broker locale, o *subscriber
@@ -279,7 +279,7 @@ creare da se grafici e indicatori basati su l’elaborazione di questi.
 
 Esempio di Dashboard Grafana su Edge Gateway                                  |
 ------------------------------------------------------------------------------|
-![Esempio di Dashboard Grafana su Edge Gateway](../img/Grafana-Dashboard.png) |
+![Esempio di Dashboard Grafana su Edge Gateway](../../img/Grafana-Dashboard.png) |
 
 #### 4.5.4 I MODELLI DI DATI
 Il design dell’Edge Gateway prevede l’utilizzo di sensori e stazioni di misura di produttori e modelli diversi. Questi
