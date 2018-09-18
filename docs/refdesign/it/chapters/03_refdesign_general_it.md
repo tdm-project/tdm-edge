@@ -79,6 +79,7 @@ la quantità di memoria RAM, e la capacità di memorizzazione.
 
 
 I requisiti per il processore dell’Edge Gateway sono i seguenti:
+
 * deve essere supportato dal kernel Linux ed essere in grado di eseguire un
   sistema operativo Linux completo;
 * avere un basso consumo energetico per permettere un utilizzo tramite

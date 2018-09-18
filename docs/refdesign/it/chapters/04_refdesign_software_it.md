@@ -10,7 +10,7 @@ deve perciò permettere una elevata flessibilità e al tempo stesso una buona
 resilienza ad errori e problemi indotti da nuove componenti.
 
 L’architettura software scelta per la realizzazione dell’Edge Gateway è
-definita ‘Choreography of loosely-coupled, containerized microservices’, ossia
+definita ‘*Choreography of loosely-coupled, containerized microservices*’, ossia
 è una composizione di microservizi non strettamente accoppiati distribuiti in
 application container. Il cuore dell’architettura è quindi costituita da una
 rete di microservizi collegati tra loro in maniera tale che la non
@@ -93,7 +93,8 @@ permette l’avvio e la composizione di diversi microservizi configurando aspett
 come i collegamenti, lo storage e l’accesso a specifiche periferiche hardware
 del sottostante sistema ospitante, attraverso un unico file di configurazione.
 
-### 4.4 COMUNICAZIONI INTERNE ED ESTERNE I microservizi, contenuti nei container
+### 4.4 COMUNICAZIONI INTERNE ED ESTERNE
+I microservizi, contenuti nei container
 Docker e in esecuzione, necessitano di comunicare tra di loro per poter
 svolgere le funzioni assegnate all’Edge Gateway. Per evitare che la
 comunicazione interna possa rappresentare un vincolo per la flessibilità e
@@ -264,14 +265,14 @@ limitate.
 Il database locale ha il compito di immagazzinare i dati provenienti da sensori
 e stazioni di misura remote per la successiva visualizzazione da parte
 dell’utente, dell’interfaccia grafica locale, o da ulteriori microservizi di
-preprocessing.  Il database utilizzato è InfluxDB ed è stato scelto in quanto
+preprocessing.  Il database utilizzato è ***InfluxDB*** ed è stato scelto in quanto
 database di destinazione generalmente utilizzato dalle stazioni di misurazione
 remote meteo e energetica.
 
 #### La Dashboard Locale
 La dashboard locale è il software che permette all’utente di visualizzare i
 dati raccolti e immagazzinati dal suo Edge Gateway. Il software utilizzato in
-questo caso è Grafana, un tool di visualizzazione WEB estremamente diffuso ed
+questo caso è ***Grafana***, un tool di visualizzazione web estremamente diffuso ed
 utilizzato per la visualizzazione e la creazione di grafici e cruscotti basati
 su serie storiche di dati. Grafana permette infatti all’utente, attraverso
 l’accesso da browser web, non solo di visualizzare i propri dati, ma anche di
@@ -286,8 +287,7 @@ Il design dell’Edge Gateway prevede l’utilizzo di sensori e stazioni di misu
 possono differire, dal punto di vista della trasmissione dei dati, sia nel protocollo usato, che nel formato dei dati stessi.
 Affinché dati dello stesso tipo ma prodotti da oggetti diversi e in formato diverso possano essere raccolti ed utilizzati
 dal progetto TDM, è necessaria una conversione in un formato comune e predefinito. In quanto nel progetto TDM si è
-scelto di aderire alle linee guida della iniziativa OASC e della sua piattaforma tecnologica di riferimento, l’ecosistema
-FIWARE, dove possibile e dove già definiti, si è scelto di usare i Modelli di Dato Armonizzato (Harmonized Data
+scelto di aderire alle linee guida della iniziativa ***OASC*** e della sua piattaforma tecnologica di riferimento, l’ecosistema ***FIWARE***, dove possibile e dove già definiti, si è scelto di usare i Modelli di Dato Armonizzato (Harmonized Data
 Models) di FIWARE. Per i domini dei sensori per i quali non è presente un Data Model Armonizzato FIWARE o non è
 stato possibile identificarne uno adeguato tra quelli presenti, si è deciso di definirne di nuovi sul modello di quelli
 esistenti.
