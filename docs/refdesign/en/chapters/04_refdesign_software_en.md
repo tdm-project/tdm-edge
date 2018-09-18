@@ -1,4 +1,4 @@
-##4. THE EDGE GATEWAY SOFTWARE PLATFORM
+## 4. THE EDGE GATEWAY SOFTWARE PLATFORM
 ### 4.1 GENERAL ARCHITECTURE
 The Edge Gateway has the task of interfacing with local sensors or remote
 measurement stations present in the building in which it is installed. Although
