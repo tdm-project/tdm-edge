@@ -51,25 +51,25 @@ funzionalità:
 
 Edge Gateway con il sensore di prova HTU21D                           | 
 --------------------------------------------------------------------- | 
-![Edge Gateway con il sensore di prova HTU21D](../img/edge-htu21d.jpg) |
+![Edge Gateway con il sensore di prova HTU21D](../../img/edge-htu21d.jpg) |
 
 La stazione meteo/ambientale col sensore di particolato e T/H                                     |
 ------------------------------------------------------------------------------------------------- |
-![La stazione meteo/ambientale col sensore di particolato e T/H](../img/outdoor-meteo-station.jpg) |
+![La stazione meteo/ambientale col sensore di particolato e T/H](../../img/outdoor-meteo-station.jpg) |
 
 Sensori vento e pioggia Argent System                              |
 ------------------------------------------------------------------ |
-![Sensori vento e pioggia Argent System](../img/argent-system.jpg)  |
+![Sensori vento e pioggia Argent System](../../img/argent-system.jpg) |
 
 Anemomentro e Segnavento Davis                      |
 --------------------------------------------------- |
-![Anemomentro e Segnavento Davis](../img/davis.jpg)  |
+![Anemomentro e Segnavento Davis](../../img/davis.jpg)  |
 
 La stazione di monitoraggio elettrico IotaWatt installata                              |
 -------------------------------------------------------------------------------------- |
-![La stazione di monitoraggio elettrico IotaWatt installata](../img/iotawatt-panel.jpg) |
+![La stazione di monitoraggio elettrico IotaWatt installata](../../img/iotawatt-panel.jpg) |
 
 Testing in laboratorio della soluzione standalone Edge Gateway – Stazione Meteo                              |
 ------------------------------------------------------------------------------------------------------------ |
-![Testing in laboratorio della soluzione standalone Edge Gateway – Stazione Meteo](../img/edge-meteo-lab.jpg) |
+![Testing in laboratorio della soluzione standalone Edge Gateway – Stazione Meteo](../../img/edge-meteo-lab.jpg) |
 

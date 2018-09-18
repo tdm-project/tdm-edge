@@ -69,9 +69,9 @@ sistemi embedded come, ad esempio, i CRC. Come mostrato dai 2 grafici seguenti,
 i test sono stati fatti sia in ambiente nativo (Arch Linux) che all’interno di
 un container Docker.
 
-![](../img/linpack.png)  |
+![](../../img/linpack.png)  |
 -------------------------|
-![](../img/coremark.png) |
+![](../../img/coremark.png) |
 
 Da entrambi i benchmark risulta evidente che l’esecuzione del codice
 all’interno di un container Docker non è soggetta ad un deterioramento delle
@@ -87,7 +87,7 @@ accesso del tipo: a[i] = b[i] + c[i]*scale e rappresenta il caso più oneroso).
 Dal diagramma, risulta una sostanziale equivalenza tra le operazioni compiute
 in ambiente nativo e all’interno di un container Docker.
 
-![](../img/stream_rpi3.png) |
+![](../../img/stream_rpi3.png) |
 ----------------------------|
 
 Il test successivo è riferito al trasferimento di dati da e verso la memoria di
@@ -100,7 +100,7 @@ l’asse verticale l’ampiezza di banda espressa in kB/s. In questo test si ha
 solo una leggera differenza nell’uso di Docker per letture casuali con
 blocksize da 4KB fino a 64KB.
 
-![](../img/disk_io_rpi3.png) |
+![](../../img/disk_io_rpi3.png) |
 -----------------------------|
 
 L’ultimo test si riferisce alle prestazioni di rete. Nei diagrammi di seguito è
@@ -110,7 +110,7 @@ semplice comunicazione andata-ritorno tra due processi con messaggi di
 dimensioni crescenti. Dai risultati si ha la conferma dell’impatto
 sostanzialmente nullo di Docker sulle prestazioni della piattaforma scelta.
 
-![](../img/netpipe_rpi3.png) |
+![](../../img/netpipe_rpi3.png) |
 -----------------------------|
 
 In conclusione, delle tre schede prese in esame, quella dotata di maggior
@@ -163,7 +163,7 @@ connette nativamente.
 
 Grafici dei dati meteo come visualizzati da *Grafana* |
 ------------------------------------------------------|
-![Grafici dei dati meteo come visualizzati da Grafana](../img/sfds-grafana.png) |
+![Grafici dei dati meteo come visualizzati da Grafana](../../img/sfds-grafana.png) |
 
 #### 5.3.2 ENERGY MONITOR
 Come strumento iniziale per il monitoraggio dei consumi energetici si è scelto
@@ -199,4 +199,4 @@ ripristinato.
 
 Il sistema IoTaWatt |
 ------------------------------------------------------|
-![Il sistema IoTaWatt](../img/iotawatt-system.png) |
+![Il sistema IoTaWatt](../../img/iotawatt-system.png) |
