@@ -37,126 +37,65 @@ A foundamental requirement was the compatibility of the SBCs with with the syste
 Both benchmarks show that no overhead is present if the execution of the code if performed within a Docker container.
 Moreover the Raspberry PI 3 appears to be the most powerful SBC among the three competitor. For this reason all the next benchmark results are reported only for this platform. 
 
-The performance of
-memory have been measured with the STREAM benchmark. STREAM belongs to the suite
-HPCC and is used to evaluate the bandwidth of RAM memory
-than different types of access (for example, Triad refers to a
-access of the type: a[i] = b[i] + c[i]*scale and represents the most onerous case).
-From the diagram, there results a substantial equivalence between the operations performed
-in a native environment and inside a Docker container.
+The performance of memory have been measured with the STREAM benchmark. STREAM belongs to the suite HPCC and is used to evaluate the bandwidth of RAM memory than different types of access (for example, Triad refers to a access of the type: a[i] = b[i] + c[i]*scale and represents the most onerous case). From the diagram, there results a substantial equivalence between the operations performed in a native environment and inside a Docker container.
 
 ![](../../img/stream_rpi3.png) |
 ----------------------------|
 
-# ---------ITA-------
-
-Il test successivo è riferito al trasferimento di dati da e verso la memoria di
-massa, in questo caso una SD card di classe 10. Il test è stato effettuato
-utilizzando il benchmark sintetico FIO, un generatore di workload molto
-flessibile che permette di simulare vari scenari nel trasferimento dei dati. I
-grafici sono relativi ad operazioni di lettura e scrittura sia sequenziale che
-casuale. L’asse orizzontale indica il blocksize usato per le operazioni, mentra
-l’asse verticale l’ampiezza di banda espressa in kB/s. In questo test si ha
-solo una leggera differenza nell’uso di Docker per letture casuali con
-blocksize da 4KB fino a 64KB.
+The synthetic benchmark FIO has been used to measure the I/O performances of a class 10 SD card. FIO is a very flexible tool that allows to generate different patterns of data transfert. Both sequential and random read/write performances are shown in the following graphs. The horizontal axis specifies the block size used whereas the vertical one shows the bandwidth measured in kB/s. A little decrease of I/O performance is noticeable for random reads using a block size in the range 4-64KB if the benchmark runs within Docker. 
 
 ![](../../img/disk_io_rpi3.png) |
 -----------------------------|
 
-L’ultimo test si riferisce alle prestazioni di rete. Nei diagrammi di seguito è
-visualizzata l’ampiezza di banda e la latenza del benchmark NetPIPE. NetPIPE
-esegue le misure in modo indipendente dal protocollo di rete facendo una
-semplice comunicazione andata-ritorno tra due processi con messaggi di
-dimensioni crescenti. Dai risultati si ha la conferma dell’impatto
-sostanzialmente nullo di Docker sulle prestazioni della piattaforma scelta.
+The last benchmark, NetPIPE, measures the networking performances. Specifically, graphs show the latency and bandwidth of a communication between two processes that send back and forth a message. The measures are performed with different message size, regardless the protocol used. As well as the previous benchmarks, the impact of Docker on the SBC performance is negligible.
 
 ![](../../img/netpipe_rpi3.png) |
 -----------------------------|
 
-In conclusione, delle tre schede prese in esame, quella dotata di maggior
-capacità computazionale, anche alla luce dei test, è risultata la Raspberry Pi
-3. Questa ha anche la connettività wireless integrata e non necessita quindi
-dell’acquisto di un dongle USB aggiuntivo. Manca però di convertitori A/D e di
-storage on-board, presenti nella BeagleBone Black. Le performance migliori
-costano però in termini di alimentazione, richiedendo la RPi 3 almeno 2.5 A di
-corrente.
+The tests showed that the Raspberry PI 3 provides the highest computational power with respect to the other two platform. The RPI 3 integrates a wireless connectivity but lacks Analog/Digital converters (ADC) and on-board memory. Its requirements in term of power consumption is higher than the other two SBC (at least 2.5A at 5V DC).
+However, the most important result is that using Docker containers enables a high degree of flexibility with a negligible impact on performance. 
 
-L’utilizzo di container Docker non sembra aggiungere un sovraccarico
-significativo al sistema operativo ospitante, soprattutto a fronte dei vantaggi
-che offre. O, alternativamente, un processo in esecuzione all’interno di un
-container Docker su sistemi embedded ARM, non percepisce la differenza.
 
-### 5.3 SENSORISTICA
-Per poter avviare lo sviluppo dell’Edge Gateway, così come per le altre
-attività verticali del progetto, sono stati
-identificati sensori e sistemi di misura iniziali da integrare con l’Edge Gateway.
+### 5.3 SENSORS
 
-#### 5.3.1 STAZIONE DI MISURA METEO/AMBIENTALE
-Tra i vari progetti open source e open hardware, sono state individuate tre
-differenti piattaforme per la sensoristica
-dei parametri ambientali e l’integrazione con l’Edge Gateway:
+In order to start the development of the Edge Gateway and the collateral activities of the project, it was needed to select some measure systems and sensors to be integrated with the Edge Gateway.
 
-* lo Smart Citizen Kit, SCK (<https://smartcitizen.me/>), device portatile per
-  la misura di temperatura, umidità, luce, suono, CO, NO2;
-* l’Arduino Weather Station Project, AWSP
-  (<http://cactus.io/projects/weather/arduino-weather-station>), piattaforma di
-misura fissa di tipo “tradizionale” con sensori per pressione atmosferica,
-temperatura, umidità, velocità e direzione de vento e precipitazione;
-* lo Stuttgart Fine Dust Sensor, SFDS
-  (<https://luftdaten.info/en/construction-manual/>) per la misurazione di
-umidità relativa, temperatura, e particolato PM10 e PM2.5.
+#### 5.3.1 WEATHER/ENVIRONMENTAL MEASURING STATION
+To integrate the capabily of weather and environmental monitoring in the Edge Gateway, three open source and open hardware projects have been identified:
 
-Per lo sviluppo e il test di laboratorio dell’Edge Gateway si è scelto di usare
-la SFDS in quanto la sua architettura e software ha permesso una rapida
-integrazione con il prototipo dell’Edge Gateway. Inoltre, data la versatilità
-della scheda, parte dei sensori della AWSP sono stati integrati nella SFDS, in
-modo da avere una piattaforma unica, versatile ed espandibile.
+* The Smart Citizen Kit, SCK (<https://smartcitizen.me/>), a portable device able to measure temperature, humidity, light, sound, CO and NO2;
 
-La connettività della SFDS è rappresentata dal chip WiFi integrato, il quale
-può agire sia come Access Point per la prima configurazione, che come WiFi
-client per l’invio dei dati verso server di raccolta e visualizzazione remota.
-La SFDS supporta diversi server remoti tra cui il database InfluxDB e sistemi
-basati su API Rest. Non disponendo di uno storage locale, in assenza di
-connettività i dati non possono essere salvati e ri-trasmessi. In rete locale
-questo può essere superato dall’’integrazione con l’Edge Gateway al quale si
-connette nativamente.
+* The Arduino Weather Station Project, AWSP
+  (<http://cactus.io/projects/weather/arduino-weather-station>), a not portable  platform with with sensors for atmospheric pressure, temperature, humidity, precipitation and wind speed and direction;
 
-Grafici dei dati meteo come visualizzati da *Grafana* |
+* The Stuttgart Fine Dust Sensor, SFDS
+  (<https://luftdaten.info/en/construction-manual/>) able to measure  temperature, humidity and PM10/PM2.5 particulate matter.
+
+The SFDS was selected to perform the preliminar tests of the Edge Gateway because its architecture and software allowed a fast integration. Moreover, some of the AWSP sensors were added to the SFDS obtaining a single expandable and versatile platform.
+
+The connectivity of the SFDS is ensured by the integrated WiFi chip that can act as both access point (for the first configuration) and WiFi client to access to the network and send information to the selected server for data gathering and visualization.
+
+SFDS supports different remote servers including the InfluxDB database and Rest API based systems. However, it does not provide a local storage and data can not be stored and retransmitted  if no connectivity is available. This limitation can be removed using the native connection to the Edge Gateway.
+
+Weather diagrams as shown by *Grafana*|
 ------------------------------------------------------|
 ![Grafici dei dati meteo come visualizzati da Grafana](../../img/sfds-grafana.png) |
 
 #### 5.3.2 ENERGY MONITOR
-Come strumento iniziale per il monitoraggio dei consumi energetici si è scelto
-di utilizzare il sistema IotaWatt. Tale sistema è stato utilizzato anche nello
-sviluppo e test dell’Edge Gateway.
+During the development and test of the Edge Gateway, the IotaWatt system was selected as energy monitor.
+IotaWatt is an accurate, multi-channel electrical monitoring system. It is open-hardware, open-source, low cost and easy to use and is based on a IoT platform with WiFi connectivity. The sampling of the signals is performed by using a 12 bit ADCs. The system provides an integrated Real Time Clock and a SD card to store acquired data. Furthermore, it supports the function of data querying with the web server and transmission to the cloud. 
+The main features are:
 
-IotaWatt è un sistema di monitoraggio elettrico accurato, multicanale,
-open-hardware, open-source, a basso costo e facile da usare. Si basa su
-piattaforma IoT dotata di connettività WiFi ed impiega per il campionamento di
-tensione e corrente convertitori Analogici/Digitali a 12 bit capaci di
-raggiungere elevate frequenze di campionamento. Il dispositivo dispone di un
-Real Time Clock integrato e di una scheda SD per la memorizzazione delle
-misure. Supporta la funzione di interrogazione dei dati con il server web
-integrato e la trasmissione verso cloud.
+*14 acquisition channels;
+*REST API for data extraction
+*Supports different brand, model and capacity current sensors
+*Supports generic definition of any current sensor
+*Configuration and display based on local LAN browser
+*Open Hardware/Software
+*Cloud supported influxDB and Emoncms.org
 
-Le caratteristiche principali:
+The software samples the input channels at the speed of 35-40 channels per second, storing the voltage (V), power (Watt) and energy (kWh) to the SD card every five seconds. Data can be displayed locally using a WiFi network or sent to a remote server Emoncms or influxDB database. If connectivity is temporary down, IotaWatt will continue to record locally, to update the server as soon as the networking will be restored.
 
-* 14 canali di acquisizione;
-* API REST per l'estrazione dei dati
-* supporta sensori di corrente di marca, modello e capacità differenti
-* supporta la definizione generica di qualsiasi sensore di corrente
-* configurazione e visualizzazione basate su browser LAN locale
-* Open Hardware/Software
-* cloud supportati influxDB e Emoncms.org
-
-Il software campiona i canali di ingresso alla velocità di 35-40 canali al
-secondo, registrando la tensione (V), la potenza (Watt) e l'energia (kWh) su
-scheda SD locale ogni cinque secondi. I dati possono essere visualizzati su
-rete WiFi o inviati su server remoto Emoncms o database influxDB. In caso di
-interruzioni del WiFi o del servizio Internet, IotaWatt continuerà a registrare
-localmente, per poi aggiornare il server quando il sistema WiFi viene
-ripristinato.
-
-Il sistema IoTaWatt |
+IoTaWatt system|
 ------------------------------------------------------|
 ![Il sistema IoTaWatt](../../img/iotawatt-system.png) |
