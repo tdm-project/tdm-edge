@@ -1,4 +1,4 @@
-## 6. Implemented prototype
+## 6. IMPLEMENTED PROTOTYPE
 
 The prototype of the whole Edge Gateway system is composed by three elements:
 
