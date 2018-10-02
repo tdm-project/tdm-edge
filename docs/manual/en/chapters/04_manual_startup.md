@@ -1,4 +1,4 @@
-## 4. BOOT OF SERVICES
+## 4. STARTUP OF THE SERVICES
 To run in background all the Edge Gateway system services type the following commands:
 
 ```bash

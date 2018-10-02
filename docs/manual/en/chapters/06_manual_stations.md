@@ -1,4 +1,4 @@
-## 6. CONFIGURATION OF MEASURE STATIONS
+## 6. CONFIGURATION OF THE MEASURE STATIONS
 To develop the prototype two measure stations have been connected to the Edge Gateway by using a local WiFi connection available on the installation site. In the following sections are described the instructions for the correct connection of the stations.
 
 ### 6.1 ENVIRONMENTAL AND WEATHER STATION 'STUTTGART FINE DUST SENSOR'

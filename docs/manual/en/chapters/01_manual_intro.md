@@ -1,24 +1,19 @@
-## 1. INTRODUZIONE
+## 1. INTRODUCTION
 
-Lo scopo di questo documento è di descrivere i passi necessari per
-l’installazione e la configurazione di un Edge Gateway TDM, al fine di essere
-utilizzato assieme alle stazioni di misura previste nel documento di Design.
-L’Edge Gateway consiste in una scheda Single Board Computer Raspberry Pi 3 con
-relativa alimentazione e scheda di memoria microSD ed eventuali sensori
-fisicamente collegati. Nel prototipo di laboratorio si è usato il sensore I2C
-di temperatura e umidità HTU21D, ma è possibile aggiungere altri dispositivi,
-dato che le specifiche della scheda e i sorgenti di esempio sono pubblici. La
-comunicazione con il resto delle stazioni di misura e il cloud avviene per
-mezzo della rete WiFi domestica.  
+
+The purpose of this document is to describe the steps needed to install and configure a TDM Edge Gateway, and to connect the measuring stations provided in the Design document.
+The Edge Gateway is composed by a Single Board Computer Raspberry Pi 3 board and a microSD and some optional sensors physically connected to the board.
+In the prototype a I2C temperature/humidity HTU21D has been used but it is quite simple to add other devices since the board specifications and sample sources are public.
+The Edge Gateway communicates with the measuring stations and the cloud by means of a local WiFi.
 
 ![](../../img/EG-2018-05.png) |
 :------:|
-| **Schema a blocchi dell'Edge Gateway** |
+| **Block diagram of the Edge Gateway** |
 
 
 ![](../../img/DSC_6182.jpg) | ![](../../img/DSC_6172.jpg) |
 ------|-------|
 
-Scheda Raspberry Pi 3 con microSD visibile sul lato inferiore (foto a sinistra) - Edge Gateway con sensore HTU21D (foto a destra) |
+Raspberry Pi 3 card with visible microSD on the underside (left picture) - Edge Gateway with a HTU21D sensord (right picture) |
 --- |
 
