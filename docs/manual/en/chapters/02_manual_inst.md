@@ -1,84 +1,78 @@
-## 2. INSTALLAZIONE
+## 2. INSTALLATION
 
-Per procedere all’installazione dell’Edge Gateway occorrono:
+The installation requirements are:
 
-* un PC Linux con lettore per schede SD/microSD;
-* privilegi di ‘*root*’;
-* un adattatore SD/microSD;
-* accesso ad una rete WiFi;
+* A PC with a Linux distribution and a SD/microSD card reader;
+* ‘*root*’ privileges;
+* SD/microSD adapter;
+* WiFi connection;
 
-La versione corrente del'Edge Gateway consiste di:  * una Raspberry Pi 3;
-* un alimentatore 220 V - 5 V microUSB in grado di erogare almeno 2,5 A;
-* una microSD da almeno 8 GB di capacità, consigliati 16 GB, classe 10.
+The current Edge Gateway version is composed by:
 
-I passi dell’installazione seguenti permettono di:
+* A Raspberry Pi 3;
+* power supply 220V/5V able to deliver at least 2.5A;
+* class 10 microSD (min 8GB, suggested 16GB);
 
-1. installare il sistema operativo personalizzato per l’Edge Gateway;
-2. effettuare il primo accesso e la configurazione della rete WiFi casalinga;
-3. installare i microservizi;
-4. configurare il software TDM e avviare i servizi.
+The described installation procedure allow to:
 
-Inoltre viene mostrato il collegamento di un sensore di test per temperatura e umidità HTU21D.
+* Install the customized operating system on the Edge Gateway;
+* configure the local WiFi;
+* install EDGE microservices;
+* configure the TDM software and start services 
 
-### 2.1 INSTALLAZIONE DEL SISTEMA OPERATIVO SULL’EDGE GATEWAY
+Moreover an example of connection between the Edge system and a temperature/humidity sensor ( HTD21D) is shown.
 
-***Nota: Per alimentare la Raspberry Pi 3 è raccomandato un alimentatore in grado di erogare almeno 2,5A: una corrente
-insufficiente infatti può causare malfunzionamenti e corruzione del filesystem.***
+### 2.1 INSTALLATION OF THE OPERATING SYSTEM TO THE EDGE GATEWAY
 
-***Nota: La seguente procedura di installazione è basata in parte sulla procedura di installazione (in lingua inglese) di
-Arch Linux per architettura ARMv7. La procedura originale è disponibile all’indirizzo:
-<https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3>.***
+***Note: The power supply of the Raspberry Pi 3 must be able to deliver al least 2.5A to avoid malfunctioning and filesystem corruption.***
 
-Le seguenti istruzioni consistono in comandi da digitare in un terminale o una console sul PC Linux. Esse, se impartite
-da utente diverso da ‘***root***’ richiedono i privilegi di amministratore. Alternativamente si può usare una shell ‘***sudo***’.
-Per avviare una shell sudo da un terminale Linux ed eseguire le successive istruzioni, digitare:
+***Note: The procedure here described is partially based on the installation of Archh Linux to the ARMv7 architecture (available at: <https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3>).***
+
+To complete successfully the installation, the commands have to be typed on a Linux console as ‘***root***’ user or with administrator privileges. A ‘***sudo***’ shell can be used as well.
+To start a ‘***sudo***’ shell type:
 
 ```bash
 sudo -s
 ```
 
-ed inserire la propria password.
+and insert the user password.
 
-### **ATTENZIONE: le operazioni che seguono distruggeranno i filesystem presenti nella scheda microSD, cancellandone il contenuto. Prestare la massima attenzione ai nomi dei dispositivi verso i quali i comandi sono indirizzati.**
 
-Di seguito sostituire ***sdX*** con il nome della periferica SD come mostrata sul computer. Per essere certi di agire sul
-dispositivo corretto si può utilizzare il comando *fdisk -l* prima e dopo l’inserimento della scheda SD per identificare il
-device id del dispositivo inserito.
 
-1. inserire la microSD nel lettore (usando eventualmente l’adattatore);
-2. prima di procedere al partizionamento è opportuno verificare che il sistema operativo non abbia montato
-eventuali partizioni già presenti sulla SD. A tal fine si può procedere consultando l’output del comando
-*mount*. Se nell’output è presente una o più partizioni con suffisso **sdX** (ad esempio ***sdX1***) smontarla mediante
-il comando
+### **WARNING: the following instructions will erase all filesystems on microSD. Every file will be deleted. Pay close attention to the names of the devices to which the commands are directed.**
+
+Replace ***sdX*** with the name of the SD device as shown on the display.
+The command *fdisk -l* can be used before and after the insertion of the SD card to find out the right device ID.
+
+1. Insert the microSD to the SD card reader (use the adapter if needed);
+2. before partitioning the microSD check if the operating system mounted some existing partition on the SD. To do it, take a look at the *mount* command output. If one or more partition with  **sdX** suffix is present (for instance ***sdX1***) unmount by typing:
+
 
   ```bash
-umount /dev/sdX{numero_partizione}
-  ```
-
-3. Partizionare la microSD con ***fdisk***:
+umount /dev/sdX{partition_number}
+  ``` 
+  
+3. Create partitions on the microSD by using the ***fdisk*** command:
 
   ```bash
 fdisk /dev/sdX
   ```
-
-4. Al prompt di fdisk, eliminare le vecchie partizioni e crearne una nuova:
   
-  **a.** Digitare **o + ENTER**. In questo modo si eliminano eventuali partizioni sull'unità.
+4. At fdisk prompt, remove old partitions and create a new one:
+
+  **a.** Type **o + ENTER**. All the partitions will be erased
   
-  **b.** Digitare **p + ENTER** per elencare le partizioni. Non ci dovrebbero essere più partizioni.
-
-  **c.** Digitare **n + ENTER**, poi **p** per primario, **1** per la prima partizione sull'unità, premere **ENTER** per
-accettare il primo settore predefinito, quindi digitare **+100M** per l'ultimo settore. Nel caso dovesse
-essere richiesto, premere **y** per rimuovere la firma *vfat* o *ext4* dalla prima partizione.
-
-  **d.** Digitare **t + ENTER**, quindi c per impostare la prima partizione sul tipo W95 FAT32 (LBA).
-
-  **e.** Digitare **n + ENTER**, poi **p** per primario, **2** per la seconda partizione sull'unità, quindi premere due
-volte **ENTER** per accettare il primo e l'ultimo settore predefiniti.
-Nel caso dovesse essere richiesto, premere **y** per rimuovere la firma ext4 dalla prima partizione.
-  **f.** Digitare **w + ENTER** per scrivere la tabella delle partizioni e uscire da fdisk.
-
-5. Creare e montare il filesystem FAT:
+  **b.** Type **p + ENTER** to list the partition. The output should be empty.
+  
+  **c.** Type **n + ENTER**, then **p** to select primary partition, **1** to specify the first partition on the device. Accept the default first sector pressing **ENTER** and type **+100M** to specify the last sector. If required, press **y** to remove the *vfat* or *ext4* signature from the first partition.
+  
+  **d.** Type **t + ENTER**, then c to set the first partition type to W95 FAT32 (LBA).
+  
+  **e.** Type **n + ENTER**, then **p** to select primary partition, **2** to specify the second partition on the device. Press twice **ENTER** to accept the default values of first and last sector. If required, press **y** to remove the *vfat* or *ext4* signature from the first partition.
+  
+  **f.** Type **w + ENTER** to write out the partition table and quit fdisk.
+  
+5. Creation and mount of the FAT filesystem:
 
   ```bash
 cd /tmp/
@@ -87,7 +81,7 @@ mkdir boot
 mount /dev/sdX1 boot
   ```
 
-6. Creare e montare il filesystem ext4:
+6. Creation and mount of the ext4 filesystem:
 
   ```bash
 mkfs.ext4 /dev/sdX2
@@ -95,8 +89,7 @@ mkdir root
 mount /dev/sdX2 root
   ```
   
-6. Scaricare ed estrarre il filesystem di root (per preservare i permessi dei file, eseguire il comando come utente
-*root* e non utilizzando il comando *sudo*):
+7. Download and extraction of the root filesystem (to preserve file permissions, run the command as *root* user instead of using the *sudo* command):
 
    ```bash
 wget --content-disposition \    
@@ -104,137 +97,140 @@ wget --content-disposition \
 tar -xpf TDM-Arm-image-latest.tar.gz -C root
 sync
    ```
-Il comando ‘*tar*’ potrebbe mostrare messaggi di errore quali:
+The ‘*tar*’ command could issue error messages:
 
   * tar: Ignoring unknown extended header keyword 'SCHILY.fflags'
   * tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.security.capability'
 
-  Su alcuni sistemi sono previsti e possono essere ignorati.
+  On some system it is a common behavior and can be ignored.
 
-7. Spostare i file di avvio nella prima partizione:
+
+8. Move startup files to the first partition:
 
   ```bash
 mv root/boot/* boot
   ```
-
-8. Smontare le due partizioni:
+  
+9. Unmount both partitions:
 
   ```bash
 umount boot root
   ```
-
-  Ora è possibile uscire dalla shell sudo, se in uso, premendo **CTRL+D** o digitando
+  
+If the previous commands were issued from a ‘***sudo***’ shell, exit by pressing **CTRL+D** or typing:
 
   ```bash
 exit
   ```
 
-### 2.2 PRIMO ACCESSO ALL’EDGE GATEWAY E CONFIGURAZIONE WIFI
-Appena avviato l’Edge Gateway si presenta come un Access Point con una sua rete WiFi privata. Attraverso questa è
-possibile accedere al dispositivo.
+### 2.2 FIRST ACCESS TO THE EDGE GATEWAY AND WIFI CONFIGURATION
+At the first boot the Edge Gateway exposes an access point, with a own private WiFi network, useful for accessing the system. 
 
-1. Inserire la scheda microSD nella Raspberry Pi e applicare l'alimentazione 5V;
-2. attendere alcuni secondi che si avvii il sistema operativo;
-3. dal PC, cercare una rete WIFI che abbia un nome simile a ‘TDM_XXXXXXXX’ e collegarsi utilizzando la
-password ‘***tdmedgegateway***’;
+1. Insert the microSD card to the Raspberry Pi and connect to the 5V power supply;
+2. Wait for the OS startup
+3. From the networking interface of the PC look for a WiFi network with a name similar to ‘TDM_XXXXXXXX’, then connect using the password ‘***tdmedgegateway***’;
 
-  ### **ATTENZIONE**: lasciare attiva la rete WiFi locale dell’Edge **senza cambiare la password di default potrebbe permettere l’accesso all’Edge a chiunque conosca tale password**. Si consiglia di modificarla al primo accesso o disabilitare la rete WiFi locale dell’Edge con i commandi mostrati nella sezione '***Cambio password utente e passphrase WiFi***'.
-
-4. Utilizzando un terminale SSH collegarsi all'indirizzo IP ‘***192.168.2.1***’:
-
-  * Effettuare il login come utente predefinito ‘*alarm*’ con password ‘*alarm*’:
+  ### **WARNING**: leaving the local WiFi of the Edge active **without changing the default password is a risk because expose the system to unauthorized accesses**. It is recommended to change the password at the first access or turn off the local WiFi of the Edge by using the commands specified in the '***Change of the user password and WiFi passphrase***' section.
+  
+4. Connect to the Edge via SSH using the IP address ‘***192.168.2.1***’. 
   
   ```bash
 ssh alarm@192.168.2.1  
   ```
   
-  Appena entrati sull’Edge viene richiesto di cambiare obbligatoriamente la password di accesso:
+  * At the login, use ‘*alarm*’ both for the username and the password.
 
-  * digitare la password corrente ‘*alarm*’
-  * digitare la nuova password, contenente almeno 8 caratteri
-  * ri-digitare la nuova password per conferma
+  At this first login it is mandatory to change the access password with the following procedure:
+  
+  * type the current password ‘*alarm*’
+  * type the new password (it should be composed of at least 8 characters)
+  * re-type the new password to confirm it
+  
+  At this point the SSH connection is terminated and it is possible to re-connect using the new password.
+  
 
-	Il collegamento SSH a questo punto viene terminato e si può procedere a ricollegarsi usando la nuova
-password.
+#### Configuration of the local WiFi on the Edge Gateway
 
-#### Configurazione WiFi domestica sull’Edge Gateway
+**WARNING**: The ‘*root*’ user is disabled for security concerns. Administrative tasks are possible only by using the ‘***sudo***’ command.
 
-**ATTENZIONE**: per sicurezza, l’utente ‘*root*’ è disabilitato, Le operazioni di amministrazione sono possibili solo attraverso l’uso del comando ‘***sudo***’.
-
-5. Ottenere i privilegi di *amministratore* inserendo la password quando richiesto dopo aver digitato il comando:
+5. Access to a privileged session typing the command:
 
   ```bash
 sudo -s
   ```
+  
+  then insert the password.
 
-6. Configurare l’Edge Gateway per collegarsi alla rete WIFI casalinga; sostituire <ESSID> con il nome della rete WIFI domestica e dopo aver digitato il seguente comando:
+6. Configure the Edge Gateway to enable the connection to the local WiFi; replace <ESSID> with the SSID name of the local WiFi in the following command:
 
   ```bash
 wpa_passphrase "<ESSID>" > /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
   ```
   
-7. il precedente comando non fornisce un *prompt*, cioè non stampa nessun messaggio di testo ma resta in
-attesa di input da parte dell’utente; inserire la password della rete WiFi domestica e premere **ENTER**;
+7. The previous command does not provide an output but waits for an input from the user; insert the password of the local WiFi and press **ENTER**;
 
-8. Riavviare l’interfaccia di rete wireless per rendere effettive le modifiche:
-
-  ```bash
-systemctl restart wpa_supplicant@wlan0
-  ```
-
-9. Se tutto è andato correttamente, l’indirizzo IP assegnato dal router wireless casalingo può essere ricavato col comando:
+8. Restart the wireless interface to make changes effective:
 
   ```bash
-ifconfig wlan0
+  systemctl restart wpa_supplicant@wlan0
   ```
+
+9. If all the previous steps have been completed without errors, the IP address assigned from the local WiFi router can be retrieved by using the following command:
+
+  ```bash
+  ifconfig wlan0
+  ```
+  Note down the IP so that it can be used for later access and for configuring the monitoring stations.
   
-  Annotare l’IP in modo da poterlo usare per accedervi successivamente e per la configurazione delle stazioni di rilevamento.
-
-10. Ora è possibile uscire dalla shell sudo, se in uso, premendo **CTRL+D** o digitando
+10. If the previous commands were issued from a ‘***sudo***’ shell, exit by pressing **CTRL+D** or typing:
 
   ```bash
-exit
+  exit
   ```
-  
-#### Cambio password utente e passphrase WiFi
-Per modificare successivamente la password dell’utente ‘alarm’ digitare il comando:
+
+
+#### Change of the user password and Wifi passphrase
+
+For later changes of the password of the ‘*alarm*’ user type:
 
   ```bash
 passwd
   ```
 
-e:
+then
 
-* digitare la password corrente
-* digitare la nuova password, contenente almeno 8 caratteri
-* ri-digitare la nuova password per conferma.
-
-Per modificare la passphrase per la rete wireless creata dall’Edge Gateway, digitare:
+  * type the current password ‘*alarm*’
+  * type the new password (it should be composed of at least 8 characters)
+  * re-type the new password to confirm it
+  
+To change the passphrase of the WiFi network activated by Edge Gateway, type:
 
   ```bash
 sudo hostap_chpsk
   ```
 
-* digitare la nuova passphrase, contenente minimo 8 caratteri e massimo 63
-* ri-digitare la nuova passphrase per conferma.
+then
+  
+  * type the new passphrase (it should be composed of at least 8 and max. 63 characters)
+  * re-type the new passphrase to confirm it.
 
-Se non necessaria, è possibile disabilitare la rete wireless creata dall’Edge Gateway coi comandi:
+It is possible to disable the WiFi network activated by Edge Gateway if not needed by using the following commands:
 
   ```bash
 sudo systemctl disable start_ap
 sudo systemctl stop start_ap
   ```
-  
-### 2.3 INSTALLAZIONE SOFTWARE TDM
-Per procedere alle operazioni che seguono occorre per prima cosa eseguire il login ssh all’indirizzo annotato in precedenza usando l’utente alarm. Ottenuto l’accesso passare all’utente root digitando il comando:
+
+### 2.3 INSTALLATION OF THE TDM SOFTWARE
+To execute the operation described in the next sections, access via SSH to the Edge Gateway by using the previously annotated IP address and the ‘*alarm*’ user. Then, access to a privileged session typing:
 
   ```bash
 sudo -s
   ```
 
-e inserendo la password dell’utente corrente.
+and insert the password.
 
-#### 2.3.1 Versione di sviluppo
+#### 2.3.1 Development version 
 
   ```bash
 cd /opt
