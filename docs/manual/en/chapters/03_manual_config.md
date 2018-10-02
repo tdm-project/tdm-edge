@@ -1,12 +1,12 @@
-## 3. CONFIGURAZIONE SOFTWARE TDM
+## 3. CONFIGURATION OF TDM SOFTWARE
 
-Il file di configurazione unica per i microservizi TDM è:
+The configuration file for setting the TDM microservices is:
 
 * ‘***/opt/tdm-edge/configs/tdm/tdm.conf***’.
 
-Tale file non esiste al momento dell’installazione e va creato al primo avvio con i comandi presenti nella prossima sezione.
+and has to be created after the installation (refer to the next section)
 
-Come esempio si riporta il suo contenuto completo:
+An example of its content is:
 
 ```ini
 [EDGE_dispatcher]
@@ -34,14 +34,15 @@ interval=10
 logging_level = 0
 ```
 
-Gli unici campi che possono necessitare di modifiche sono:
+The fields that are likely to be changed are:
 
-* Sezione ‘**EDGE_dispatcher**’:
-  * *mqtt_remote_host*: indirizzo del broker TDM, potrebbe cambiare, previa indicazione sul sito TDM;
-  * *mqtt_remote_port*: posta del broker TDM, potrebbe cambiare, previa indicazione sul sito TDM;
+* ‘**EDGE_dispatcher**’ section:
+  * *mqtt_remote_host*: address of the TDM broker, it could change, check on TDM website for information;
+  * *mqtt_remote_port*:port of the TDM broker, it could change, check on TDM website for information;
 
-### 3.1 CREAZIONE DEL FILE DI CONFIGURAZIONE
-Il file di configurazione non è presente all’installazione e va creato successivamente:
+### 3.1 CREATION OF THE CONFIGURATION FILE
+
+The configuration file does not exist right after the installation and has to be created by typing:
 
 ```bash
 cat > /opt/tdm-edge/configs/tdm/tdm.conf <<EOF
@@ -71,15 +72,14 @@ logging_level = 0
 EOF
 ```
 
-### 3.2 MODIFICA DEL FILE DI CONFIGURAZIONE
-Il file di configurazione del software TDM può essere modificato successivamente alla creazione col comando ‘nano’:
+### 3.2 EDITING OF THE CONFIGURATION FILE
+The configuration file of the TDM software can be modified in any moment after the creation using the ‘nano’ command
 
 ```bash
 nano /opt/tdm-edge/configs/tdm/tdm.conf
 ```
 
-Una volta terminate le modifiche digitare:
+After editing the file, type:
 
-* **CTRL+X**, successivamente **Y** e **INVIO** per salvare il file ed uscire
-* **CTRL+X**, successivamente **N** e **INVIO** per uscire senza salvare il file.
-
+* **CTRL+X**, then **Y** and **ENTER** to save the file and exit.
+* **CTRL+X**, then **N** and **ENTER** to exit without save.
