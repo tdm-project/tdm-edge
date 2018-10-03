@@ -28,6 +28,10 @@ This repository contains:
 
 ## Documentation
 
-### Italian Language:
+### Italian Version:
 * [**REFERENCE DESIGN PER SENSORISTICA DIFFUSA**](docs/refdesign/it/refdesign.md)
-* [**MANUALE DI INSTALLAZIONE E CONFIGURAZIONE DEL PROTOTIPO DI EDGE GATEWAY**](docs/manual/it/manual.md)
+* [**MANUALE DI INSTALLAZIONE E CONFIGURAZIONE DEL PROTOTIPO DI EDGE GATEWAY**](docs/manual/it/manual_it.md)
+
+### English Version:
+* [**REFERENCE DESIGN FOR WIDESPREAD SENSORS TECHNOLOGY**](docs/refdesign/en/refdesign_en.md)
+* [**INSTALLATION AND CONFIGURATION MANUAL OF THE EDGE GATEWAY PROTOTYPE**](docs/manual/it/manual_en.md)
