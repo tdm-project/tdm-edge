@@ -8,7 +8,7 @@ This document describes the hardware/software architecture of the Edge Gateway a
 
 * **[1. INTRODUCTION](chapters/01_refdesign_intro_it.md)**
 * **[2. OVERVIEW OF THE ACQUISITION AND AGGREGATION ARCHITECTURE](chapters/02_refdesign_overview_it.md)**
-* **[3. ](chapters/03_refdesign_general_it.md)**
-* **[4. ](chapters/04_refdesign_software_it.md)**
+* **[3. GENERAL CHARACTERISTICS OF THE EDGE GATEWAY HARDWARE PLATFORM](chapters/03_refdesign_general_it.md)**
+* **[4. THE EDGE GATEWAY SOFTWARE PLATFORM](chapters/04_refdesign_software_it.md)**
 * **[5. THE HARDWARE PLATFORM OF EDGE GATEWAY](chapters/05_refdesign_hardware_it.md)**
 * **[6. IMPLEMENTED PROTOTYPE](chapters/06_refdesign_prototype_it.md)**

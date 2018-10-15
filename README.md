@@ -34,4 +34,4 @@ This repository contains:
 
 ### English Version:
 * [**REFERENCE DESIGN FOR WIDESPREAD SENSORS TECHNOLOGY**](docs/refdesign/en/refdesign_en.md)
-* [**INSTALLATION AND CONFIGURATION MANUAL OF THE EDGE GATEWAY PROTOTYPE**](docs/manual/it/manual_en.md)
+* [**INSTALLATION AND CONFIGURATION MANUAL OF THE EDGE GATEWAY PROTOTYPE**](docs/manual/en/manual_en.md)
