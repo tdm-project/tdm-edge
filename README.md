@@ -2,7 +2,11 @@
 
 ***tdm-edge*** repository is the main repository for the deployment of the ***TDM Edge Gateway*** software architecture.
 
-In the *TDM Project Architecture for Widespread Sensors Technology*, the *Edge Gateway* is the component dedicated to *collect* data and measures from sensors and metering stations deployed on public and private buildings, and to *forward* them to the ***TDM Cloud*** for storage, processing and visualization purposes. It answers to the demand of *interfacing* etherogeneous sensors with a common data representation format, *deal* with the central system according with the availability and capability of the network, and to allow the user for a *local visualization and processing* of their related data.
+In the *TDM Project Architecture for Widespread Sensors Technology*, the *Edge Gateway* is the component dedicated to *collect* data and measures from sensors and metering stations deployed on public and private buildings, and to *forward* them to the ***TDM Cloud*** for storage, processing and visualization purposes. It answers to the demands of: 
+
+* *interfacing* etherogeneous sensors with a common data representation format;
+* *dealing* with the central system according with the availability and capability of the network; 
+* and to allowing for *visualization and processing* of local data.
 
 Its software architecture is designed to run on low-cost near-hobbistic *Single Board Computers* (SBCs) like ***Raspberry PI*** and ***BeagleBone*** and as described in the ***Reference Design*** document the micro-services that make up the Edge Gateway system are bundled in ***Docker*** containers and their interactions are managed by ***Docker Compose*** tool. Roles and collaboration between the micro-services, the *coreography*, is described in the ***docker-compose.yaml*** file.
 
