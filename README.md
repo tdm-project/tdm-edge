@@ -8,7 +8,7 @@ In the *TDM Project Architecture for Widespread Sensors Technology*, the *Edge G
 * *dealing* with the central system according with the availability and capability of the network; 
 * and to allowing for *visualization and processing* of local data.
 
-Its software architecture is designed to run on low-cost near-hobbistic *Single Board Computers* (SBCs) like ***Raspberry PI*** and ***BeagleBone*** and as described in the ***Reference Design*** document the micro-services that make up the Edge Gateway system are bundled in ***Docker*** containers and their interactions are managed by ***Docker Compose*** tool. Roles and collaboration between the micro-services, the *coreography*, is described in the ***docker-compose.yaml*** file.
+Its software architecture is designed to run on low-cost *Single Board Computers* (SBCs) like ***Raspberry PI*** and ***BeagleBone*** and as described in the ***Reference Design*** document the micro-services that make up the Edge Gateway system are bundled in ***Docker*** containers and their interactions are managed by ***Docker Compose*** tool. Roles and collaboration between the micro-services, the *coreography*, is described in the ***docker-compose.yaml*** file.
 
 For more information about Docker and Docker Compose, refer to:
 
