@@ -66,7 +66,7 @@ fdisk /dev/sdX
   
   **c.** Type **n + ENTER**, then **p** to select primary partition, **1** to specify the first partition on the device. Accept the default first sector pressing **ENTER** and type **+100M** to specify the last sector. If required, press **y** to remove the *vfat* or *ext4* signature from the first partition.
   
-  **d.** Type **t + ENTER**, then c to set the first partition type to W95 FAT32 (LBA).
+  **d.** Type **t + ENTER**, then **c** to set the first partition type to W95 FAT32 (LBA).
   
   **e.** Type **n + ENTER**, then **p** to select primary partition, **2** to specify the second partition on the device. Press twice **ENTER** to accept the default values of first and last sector. If required, press **y** to remove the *vfat* or *ext4* signature from the first partition.
   
@@ -91,13 +91,13 @@ mount /dev/sdX2 root
   
 7. Download and extraction of the root filesystem (to preserve file permissions, run the command as *root* user instead of using the *sudo* command):
 
-   ```bash
-wget --content-disposition \    
-    https://space.crs4.it/s/ywvVDh3tuOBWCZ2/download
+  ```bash
+wget --content-disposition https://space.crs4.it/s/ywvVDh3tuOBWCZ2/download
 tar -xpf TDM-Arm-image-latest.tar.gz -C root
 sync
-   ```
-The ‘*tar*’ command could issue error messages:
+  ```
+
+	The ‘*tar*’ command could issue error messages:
 
   * tar: Ignoring unknown extended header keyword 'SCHILY.fflags'
   * tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.security.capability'

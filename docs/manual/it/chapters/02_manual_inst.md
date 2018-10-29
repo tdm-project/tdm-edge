@@ -71,7 +71,7 @@ fdisk /dev/sdX
 accettare il primo settore predefinito, quindi digitare **+100M** per l'ultimo settore. Nel caso dovesse
 essere richiesto, premere **y** per rimuovere la firma *vfat* o *ext4* dalla prima partizione.
 
-  **d.** Digitare **t + ENTER**, quindi c per impostare la prima partizione sul tipo W95 FAT32 (LBA).
+  **d.** Digitare **t + ENTER**, quindi **c** per impostare la prima partizione sul tipo W95 FAT32 (LBA).
 
   **e.** Digitare **n + ENTER**, poi **p** per primario, **2** per la seconda partizione sull'unità, quindi premere due
 volte **ENTER** per accettare il primo e l'ultimo settore predefiniti.
