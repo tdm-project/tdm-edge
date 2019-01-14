@@ -100,11 +100,11 @@ mount /dev/sdX2 root
 6. Scaricare ed estrarre il filesystem di root (per preservare i permessi dei file, eseguire il comando come utente
 *root* e non utilizzando il comando *sudo*):
 
-   ```bash
+  ```bash
 wget --content-disposition https://space.crs4.it/s/ywvVDh3tuOBWCZ2/download
 tar -xpf TDM-Arm-image-latest.tar.gz -C root
 sync
-   ```
+  ```
 
 	Il comando ‘*tar*’ potrebbe mostrare messaggi di errore quali:
 
