@@ -7,7 +7,9 @@ Per procedere all’installazione dell’Edge Gateway occorrono:
 * un adattatore SD/microSD;
 * accesso ad una rete WiFi;
 
-La versione corrente del'Edge Gateway consiste di:  * una Raspberry Pi 3;
+La versione corrente del'Edge Gateway consiste di:
+  
+* una Raspberry Pi 3;
 * un alimentatore 220 V - 5 V microUSB in grado di erogare almeno 2,5 A;
 * una microSD da almeno 8 GB di capacità, consigliati 16 GB, classe 10.
 
@@ -99,12 +101,12 @@ mount /dev/sdX2 root
 *root* e non utilizzando il comando *sudo*):
 
    ```bash
-wget --content-disposition \    
-    https://space.crs4.it/s/ywvVDh3tuOBWCZ2/download
+wget --content-disposition https://space.crs4.it/s/ywvVDh3tuOBWCZ2/download
 tar -xpf TDM-Arm-image-latest.tar.gz -C root
 sync
    ```
-Il comando ‘*tar*’ potrebbe mostrare messaggi di errore quali:
+
+	Il comando ‘*tar*’ potrebbe mostrare messaggi di errore quali:
 
   * tar: Ignoring unknown extended header keyword 'SCHILY.fflags'
   * tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.security.capability'
