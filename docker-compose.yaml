@@ -51,6 +51,19 @@ services:
       - ./configs/tdm/:/opt/configs/
     restart: always
 
+  emontx:
+    image: tdmproject/edge-emon433-handler:latest
+    container_name: tdm_emontx
+    depends_on:
+      - mosquitto
+    networks:
+      - tdm_edge
+    devices:
+      - /dev/ttyAMA0:/dev/ttyS0
+    volumes:
+      - ./configs/tdm/:/opt/configs/
+    restart: always
+
   dispatcher:
     image: tdmproject/edge-dispatcher
     container_name: tdm_dispatcher
@@ -72,10 +85,11 @@ services:
     restart: always
 
   grafana:
-    image: fg2it/grafana-armhf:v4.1.2
+    image: grafana/grafana:6.6.0
     container_name: tdm_grafana
     ports:
       - "80:3000"
+    user: "104"
     networks:
       - tdm_edge
     volumes:
