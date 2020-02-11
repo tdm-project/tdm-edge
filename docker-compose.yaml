@@ -76,12 +76,12 @@ services:
     restart: always
 
   influxdb:
-    image: hypriot/rpi-influxdb
+    image: influxdb:1.7.9
     container_name: tdm_influxdb
     networks:
       - tdm_edge
     volumes:
-      - influxdb-storage:/data
+      - influxdb-storage:/var/lib/influxdb
     restart: always
 
   grafana:
