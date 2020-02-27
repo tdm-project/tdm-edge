@@ -78,6 +78,8 @@ services:
   influxdb:
     image: influxdb:1.7.9
     container_name: tdm_influxdb
+    environment:
+      - INFLUXDB_REPORTING_DISABLED=true
     networks:
       - tdm_edge
     volumes:
@@ -92,6 +94,8 @@ services:
     user: "104"
     networks:
       - tdm_edge
+    depends_on:
+      - influxdb
     volumes:
       - influxdb-storage:/data
       - grafana-storage:/var/lib/grafana
