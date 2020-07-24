@@ -1,5 +1,8 @@
 # TDM-EDGE Repository
 
+* For installation instructions [see the wiki](https://github.com/tdm-project/tdm-edge/wiki)
+* For pre-built images go to the [official repository](https://static-repo.tdm-project.it/repo/iso/edge-gateway/)
+
 ***tdm-edge*** repository is the main repository for the deployment of the ***TDM Edge Gateway*** software architecture.
 
 In the *TDM Project Architecture for Widespread Sensors Technology*, the *Edge Gateway* is the component dedicated to *collect* data and measures from sensors and metering stations deployed on public and private buildings, and to *forward* them to the ***TDM Cloud*** for storage, processing and visualization purposes. It answers to the demands of: 
