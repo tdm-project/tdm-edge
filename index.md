@@ -9,7 +9,6 @@ The TDM Edge Gateway is a Raspberry-Pi-based edge gateway device.
 
 
 
-
 ## Links
 
 * Latest image: http://s.crs4.it/Gk/tdmimage-latest.img.xz

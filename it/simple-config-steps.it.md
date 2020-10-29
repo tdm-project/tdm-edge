@@ -98,3 +98,18 @@ Per vedere gli indirizzi per accedere a Grafana e configurare i sensori, nel
 menù `tdm-config` seleziona "Mostra Configurazione per i Sensori".
 
 
+## Default accounts
+
+:warning: È fortemente consigliato cambiare le password preimpostate.
+
+### Edge gateway Unix account
+
+    username: alarm
+    password: alarm
+
+### Grafana account
+
+    username: admin
+    passoword: admin
+
+
