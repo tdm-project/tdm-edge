@@ -16,9 +16,9 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 ## Installa il software sulla scheda SD
 
 
-* Scarica l'immagine del sistema operativo: [http://s.crs4.it/Gk/tdmimage-latest.img.xz]
+* Scarica l'immagine del sistema operativo: <http://s.crs4.it/Gk/tdmimage-latest.img.xz>
 * Usa un software adeguato per scrivere l'immagine sulla scheda
-  * Suggeriamo Balena Etcher: [http://www.balena.io/etcher/]
+  * Suggeriamo Balena Etcher: <http://www.balena.io/etcher/>
   * Segui le istruzioni fornite dal programma
 
 
