@@ -8,7 +8,7 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 
 1. [Installa il software sulla scheda SD](#installa-il-software-sulla-scheda-sd)
 2. [Primo avvio e configurazione rete](#primo-avvio-e-configurazione-rete)
-3. Collegarsi all'edge gateway
+3. [Collegarsi all'edge gateway](#collegarsi-alledge-gateway)
 4. [Configurazione](#configurazione)
 5. [Collegarsi ai servizi](#collegarsi-ai-servizi)
 
@@ -16,9 +16,9 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 ## Installa il software sulla scheda SD
 
 
-* Scarica l'immagine del sistema operativo: http://s.crs4.it/Gk/tdmimage-latest.img.xz
+* Scarica l'immagine del sistema operativo: [http://s.crs4.it/Gk/tdmimage-latest.img.xz]
 * Usa un software adeguato per scrivere l'immagine sulla scheda
-  * Suggeriamo Balena Etcher: http://www.balena.io/etcher/
+  * Suggeriamo Balena Etcher: [http://www.balena.io/etcher/]
   * Segui le istruzioni fornite dal programma
 
 
