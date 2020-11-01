@@ -6,27 +6,44 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 
 ## Procedura
 
-1. [Installa il software sulla scheda SD](#installa-il-software-sulla-scheda-sd)
+0. [Prerequisiti](#prerequisiti)
+1. [Installazione del software sulla scheda SD](#installa-il-software-sulla-scheda-sd)
 2. [Primo avvio e configurazione rete](#primo-avvio-e-configurazione-rete)
 3. [Collegarsi all'edge gateway](#collegarsi-alledge-gateway)
 4. [Configurazione](#configurazione)
 5. [Collegarsi ai servizi](#collegarsi-ai-servizi)
 
 
-## Installa il software sulla scheda SD
+## Prerequisiti
 
 
-* Scarica l'immagine del sistema operativo: <http://s.crs4.it/Gk/tdmimage-latest.img.xz>
-* Usa un software adeguato per scrivere l'immagine sulla scheda
-  * Suggeriamo Balena Etcher: <http://www.balena.io/etcher/>
-  * Segui le istruzioni fornite dal programma
+* Per l'installazione e la configurazione del TDM Edge Gateway occorre:
+  * Un Edge Gateway TDM
+  * Un PC con connettività WiFi (ad esempio laptop Windows/Mac/Linux) e lettore di schede
+    SD (è possibile usare *dongle WiFi USB* e *dongle lettore SD USB*)
+  * Scheda microSD con adattatore microSD/SD
+  * Rete WiFi con credenziali di accesso (SSID e chiave/password)
+
+
+## Installazione del software sulla scheda SD
+
+
+*Se si dispone di un Edge o una scheda microSD preinstallata si può passare
+  alla sezione "[Primo avvio e configurazione rete](#primo-avvio-e-configurazione-rete)"*
+
+* Scaricare l'immagine del sistema operativo: <http://s.crs4.it/Gk/tdmimage-latest.img.xz>
+* Scrivere l'immagine sulla scheda microSD
+  * Per sistemi Windows/Mac/Linux suggeriamo il software **Balena Etcher**: <http://www.balena.io/etcher/>
+    * Installare il programma sul PC
+    * Inserire la microSD nel portatile (eventualmente usando l'adattatore microSD/SD)
+    * Segui le istruzioni fornite dal programma
 
 
 ## Primo avvio e configurazione rete
 
 
 * Inserisci la scheda SD inizializzata nel Raspberry Pi ed accendi il dispositivo.
-* La edge gateway attiverà una propria rete WiFi.  Avrà un nome tipo `TDM_12345678`.
+* Al primo avvio l'Edge Gateway attiverà una propria rete WiFi.  Questa avrà un nome tipo `TDM_12345678`.
   Cercala dal tuo PC e collegati.
   * La password per la rete è `tdmedgegateway`.
 * Collegati all'edge gateway con un client `ssh`:
@@ -35,6 +52,17 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
   * password:    `alarm`
 
     ssh alarm@192.168.2.1
+
+* Al primo avvio occorre cambiare la password dell'Edge Gateway. Scegli una nuova password.
+* Quando richiesto:
+  * digita l'attuale password (`alarm`)
+  * digita la nuova password
+  * digita nuovamente la nuova password come conferma
+* Ricollegati all'Edge Gateway usando la nuova password:
+  * indirizzo IP: 192.168.2.1
+  * nome utente: `alarm`
+  * password:    *<nuova_password>*
+
 
 * Configura l'accesso alla rete Wifi domestica con il comando `tdm-config`:
 
