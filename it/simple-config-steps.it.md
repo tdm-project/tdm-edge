@@ -7,8 +7,8 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 ## Procedura
 
 0. [Prerequisiti](#prerequisiti)
-1. [Installazione del software sulla scheda SD](#installa-il-software-sulla-scheda-sd)
-2. [Primo avvio e configurazione rete](#primo-avvio-e-configurazione-rete)
+1. [Installazione del software sulla scheda SD](#installazione-del-software-sulla-scheda-sd)
+2. [Primo avvio](#primo-avvio)
 3. [Collegarsi all'Edge Gateway](#collegarsi-alledge-gateway)
 4. [Configurazione](#configurazione)
 5. [Collegarsi ai servizi](#collegarsi-ai-servizi)
@@ -31,18 +31,20 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 *Se si dispone di un Edge o una scheda microSD preinstallata si può passare
   alla sezione "[Primo avvio e configurazione rete](#primo-avvio-e-configurazione-rete)"*
 
+Per scrivere l'immagine del sistema operativo sulla scheda microSD suggeriamo
+il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
+<http://www.balena.io/etcher/>.
+
 * Scarica l'immagine del sistema operativo: <http://s.crs4.it/Gk/tdmimage-latest.img.xz>
-* Scrivi l'immagine sulla scheda microSD: suggeriamo il software **Balena Etcher**
-  (disponibile per i sistemi Windows/Mac/Linux): <http://www.balena.io/etcher/>
-  * Installare il programma sul PC
-  * Inserire la microSD nel portatile (eventualmente usando l'adattatore microSD/SD)
-    * Avviare Balena Etcher ed esegui i seguenti passi:
-    * clicca su ’*Flash from file*’ e seleziona il file immagine
-    * clicca su ’*Select Target*’ e seleziona il lettore di Schede SD (attenzione a selezionare il dispositivo corretto)
-    * clicca su ’*Flash!*’ per avviare la scrittura e attendi il completamento
+* Installa il programma Balena Etcher sul PC
+* Inserire la microSD nel portatile (eventualmente usando l'adattatore microSD/SD)
+* Avvia Balena Etcher ed esegui i seguenti passi:
+  * clicca su ’*Flash from file*’ e seleziona il file immagine
+  * clicca su ’*Select Target*’ e seleziona il lettore di Schede SD (attenzione a selezionare il dispositivo corretto)
+  * clicca su ’*Flash!*’ per avviare la scrittura e attendi il completamento
 
 
-## Primo avvio e configurazione rete
+## Primo avvio
 
 
 * Inserisci la scheda SD inizializzata nell'Edge Gateway ed accendi il
@@ -61,8 +63,7 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
     ssh alarm@192.168.2.1
 ```
 
-* Al primo avvio occorre cambiare la password dell'Edge Gateway. Scegli una nuova password.
-* Quando richiesto:
+* Al primo avvio occorre cambiare la password dell'Edge Gateway. Scegli una nuova password. Quando richiesto:
   * digita l'attuale password (*alarm*)
   * digita la nuova password
   * digita nuovamente la nuova password come conferma
@@ -74,16 +75,22 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
   * nome utente: **alarm**
   * password:    ***\<nuova_password\>***
 
+:bulb: Collegando l'Edge Gateway ad un monitor ed una tastiera puoi autenticarti
+direttamente dal terminale saltando il collegamento tramite *ssh*.
 
-* Avvia il programma di configurazione dell'Edge Gateway `tdm-config` (richiede
-  la password dell'Edge):
+
+## Configurazione
+
+
+* Avvia il programma di configurazione dell'Edge Gateway `tdm-config` (inserisci
+  la password dell'Edge quando richiesto):
 
 ```bash
     sudo tdm-config
 ```
 
 * Prima di effettuare le configurazioni occorre espandere il file system perché
-  questa oprazione potrebbe cancellare i dati presenti nella microSD:
+  questa operazione potrebbe cancellare i dati presenti nella microSD:
 
   * Entra nel menù "Espandi il Filesystem" e conferma l'operazione
 
@@ -95,17 +102,17 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
   * digita la nuova passphrase
   * digita nuovamente la nuova passphrase come conferma
 
-:writing_hand: Annota la nuova passphrase per la wifi dell'Edge Gatway `TDM_XXXXXXXX`.
+:writing_hand: Annota la nuova passphrase per la wifi dell'Edge Gatway `TDM_XXXXXXXX`: questa ti servirà per raggiungere l'Edge qualora questo non riuscisse a collegarsi alla WiFi locale ([Collegarsi all'AP dell'Edge](it/ap-connection-steps.it.md))
 
-* Entra nel menù "Configurazione WiFi" e segui le istruzioni
-  * :writing_hand: Annota l'indirizzo IP assegnato dal router
+* Entra nel menù "*Configurazione WiFi*"
+  * entra nel sottomenù "*Configurazione WiFi (Scansione Automatica SSID)*" e attendi il termine della ricerca delle reti WiFi locali
+  * seleziona la tua rete WiFi locale
+  * inserisci lla passhprase della tua rete WiFi locale (non quella dell'Edge Gateway!)
+
+:writing_hand: Annota l'indirizzo IP assegnato dal router
 
 * Riavvia l'Edge Gateway con la voce nel menù `tdm-config`.
 
-
-:bulb: Se hai collegato l'Edge ad un monitor e tastiera, salta i primi passi per
-collegarsi via `ssh` e invece autenticati dal terminale, poi per eseguire `sudo
-tdm-config`.
 
 ## Collegarsi all'Edge Gateway
 
