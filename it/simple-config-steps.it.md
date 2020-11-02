@@ -79,10 +79,13 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 * Modifica password AP
   * :warning: Se non modifichi la password, l'edge non attiverà più l'access
     point Wifi -- neanche se non riesce a collegarsi alla Wifi domestica
+
   * :writing_hand: Annota la nuova password per la wifi dell'Edge Gatway `TDM_XXXXXXXX`
 
 * Entra nel menù "Configurazione WiFi" e segui le istruzioni
+
 * :writing_hand: Annota l'indirizzo IP assegnato dal router
+
 * :writing_hand: Seleziona "Mostra Configurazioni Edge Gateway" e annota il hostname dell'edge
 
 * Riavvia l'edge gateway con la voce nel menù `tdm-config`.
