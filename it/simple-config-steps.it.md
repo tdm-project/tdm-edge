@@ -1,6 +1,6 @@
 
 
-# Configurazione semplificata del TDM edge gateway
+# Configurazione semplificata del TDM Edge Gateway
 
 Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 
@@ -9,7 +9,7 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 0. [Prerequisiti](#prerequisiti)
 1. [Installazione del software sulla scheda SD](#installa-il-software-sulla-scheda-sd)
 2. [Primo avvio e configurazione rete](#primo-avvio-e-configurazione-rete)
-3. [Collegarsi all'edge gateway](#collegarsi-alledge-gateway)
+3. [Collegarsi all'Edge Gateway](#collegarsi-alledge-gateway)
 4. [Configurazione](#configurazione)
 5. [Collegarsi ai servizi](#collegarsi-ai-servizi)
 
@@ -32,26 +32,27 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
   alla sezione "[Primo avvio e configurazione rete](#primo-avvio-e-configurazione-rete)"*
 
 * Scarica l'immagine del sistema operativo: <http://s.crs4.it/Gk/tdmimage-latest.img.xz>
-* Scrivi l'immagine sulla scheda microSD
-  * Per sistemi Windows/Mac/Linux suggeriamo il software **Balena Etcher**: <http://www.balena.io/etcher/>
-    * Installare il programma sul PC
-    * Inserire la microSD nel portatile (eventualmente usando l'adattatore microSD/SD)
+* Scrivi l'immagine sulla scheda microSD: suggeriamo il software **Balena Etcher**
+  (disponibile per i sistemi Windows/Mac/Linux): <http://www.balena.io/etcher/>
+  * Installare il programma sul PC
+  * Inserire la microSD nel portatile (eventualmente usando l'adattatore microSD/SD)
     * Avviare Balena Etcher ed esegui i seguenti passi:
-      * clicca su ’Flash from file’ e seleziona il file immagine
-      * clicca su ’Select Target’ e seleziona il lettore di Schede SD (:warning: attenzione a selezionare il dispositivo corretto)
-      * clicca su ’Flash!’ per avviare la copia e attenderne il completamento
+    * clicca su ’*Flash from file*’ e seleziona il file immagine
+    * clicca su ’*Select Target*’ e seleziona il lettore di Schede SD (attenzione a selezionare il dispositivo corretto)
+    * clicca su ’*Flash!*’ per avviare la scrittura e attendi il completamento
 
 
 ## Primo avvio e configurazione rete
 
 
-* Inserisci la scheda SD inizializzata nel Raspberry Pi ed accendi il dispositivo.
-* Al primo avvio l'Edge Gateway attiverà una propria rete WiFi. Questa avrà un
-  nome simile a `TDM_XXXXXXXX`. Cercala dal tuo PC e collegati.
-  * La password per la rete è `tdmedgegateway`.
-* Collegati all'edge gateway con un client `ssh`:
-  * su sistemi Mac OS e Linux usando da terminale il comando `ssh`
-  * su sistemi Windows usando il programma `PuTTY` <https://www.putty.org/>
+* Inserisci la scheda SD inizializzata nell'Edge Gateway ed accendi il
+  dispositivo. Al primo avvio l'Edge Gateway attiverà una propria rete WiFi.
+  Questa avrà un nome simile a `TDM_XXXXXXXX`. Cercala dal tuo PC e collegati.
+  * La password per la rete è **tdmedgegateway**.
+
+* Collegati all'Edge Gateway con un client *ssh*: su sistemi Mac OS e Linux
+  usa da terminale il comando `ssh` mentre su sistemi Windows puoi usare il
+  programma `PuTTY` <https://www.putty.org/>
   * indirizzo IP: **192.168.2.1**
   * nome utente: **alarm**
   * password:    **alarm**
@@ -62,62 +63,70 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 
 * Al primo avvio occorre cambiare la password dell'Edge Gateway. Scegli una nuova password.
 * Quando richiesto:
-  * digita l'attuale password (`alarm`)
+  * digita l'attuale password (*alarm*)
   * digita la nuova password
   * digita nuovamente la nuova password come conferma
+
+:writing_hand: Annota la nuova password dell'Edge Gatway.
+
 * Ricollegati all'Edge Gateway usando la nuova password:
-  * indirizzo IP: 192.168.2.1
-  * nome utente: `alarm`
-  * password:    *\<nuova_password\>*
+  * indirizzo IP: **192.168.2.1**
+  * nome utente: **alarm**
+  * password:    ***\<nuova_password\>***
 
 
 * Avvia il programma di configurazione dell'Edge Gateway `tdm-config` (richiede
   la password dell'Edge):
 
+```bash
     sudo tdm-config
+```
 
 * Prima di effettuare le configurazioni occorre espandere il file system perché
   questa oprazione potrebbe cancellare i dati presenti nella microSD:
 
-  * Entra nel menù "Espandi il Filesystem" e segui le istruzioni
+  * Entra nel menù "Espandi il Filesystem" e conferma l'operazione
 
 * Modifica password AP
-  * :warning: Se non modifichi la password, l'edge non attiverà più l'access
+  * :warning: Se non modifichi la password, l'Edge non attiverà più l'access
     point Wifi -- neanche se non riesce a collegarsi alla Wifi domestica
 
-  * :writing_hand: Annota la nuova password per la wifi dell'Edge Gatway `TDM_XXXXXXXX`
+  * Entra nel menù "*Modifica passphrase AP*" e conferma l'operazione
+  * digita la nuova passphrase
+  * digita nuovamente la nuova passphrase come conferma
+
+:writing_hand: Annota la nuova passphrase per la wifi dell'Edge Gatway `TDM_XXXXXXXX`.
 
 * Entra nel menù "Configurazione WiFi" e segui le istruzioni
   * :writing_hand: Annota l'indirizzo IP assegnato dal router
 
-* :writing_hand: Seleziona "Mostra Configurazioni Edge Gateway" e annota il hostname dell'edge
-* Riavvia l'edge gateway con la voce nel menù `tdm-config`.
+* Riavvia l'Edge Gateway con la voce nel menù `tdm-config`.
 
 
-:bulb: Se hai collegato l'edge ad un monitor e tastiera, salta i primi passi per
+:bulb: Se hai collegato l'Edge ad un monitor e tastiera, salta i primi passi per
 collegarsi via `ssh` e invece autenticati dal terminale, poi per eseguire `sudo
 tdm-config`.
 
-## Collegarsi all'edge gateway
+## Collegarsi all'Edge Gateway
 
-* Dopo il riavvio, l'edge gateway userà la configurazione appena impostata per
+* Dopo il riavvio, l'Edge Gateway userà la configurazione appena impostata per
   collegarsi alla WiFi domestica.
 
-### Trovare l'edge per nome
+### Trovare l'Edge per nome
 
-Se stai lavorando su Linux o MacOSX, puoi trovare l'edge gateway per nome
+Se stai lavorando su Linux o MacOSX, puoi trovare l'Edge Gateway per nome
 (attraverso usando mDNS/Zeroconf/Avahi).
 
-* Recupera il hostname dell'edge gateway e usalo per collegarti con `ssh`. E.g.:
+* Recupera il hostname dell'Edge Gateway e usalo per collegarti con `ssh`. E.g.:
 
     ssh alarm@tdm-edge-xxxxxxxx.local
 
-### Trovare l'edge per indirizzo IP
+### Trovare l'Edge per indirizzo IP
 
-Se stai lavorando su Windows, puoi trovare l'edge gateway usando l'indirizzo IP
+Se stai lavorando su Windows, puoi trovare l'Edge Gateway usando l'indirizzo IP
 fornito nel passo successivo.
 
-* Recupera l'indirizzo dell'edge gateway e usalo per collegarti con `ssh`. E.g.:
+* Recupera l'indirizzo dell'Edge Gateway e usalo per collegarti con `ssh`. E.g.:
 
     ssh alarm@192.168.xxx.yyy
 
@@ -126,7 +135,7 @@ fornito nel passo successivo.
 
 ## Configurazione
 
-Procedi a configurare l'edge gateway.
+Procedi a configurare l'Edge Gateway.
 
 Esegui `sudo tdm-config` e usa il menù per fare le seguenti cose.
 
@@ -135,7 +144,7 @@ Esegui `sudo tdm-config` e usa il menù per fare le seguenti cose.
   * Selezione la voce "Configurazioni MQTT", poi "Chiave Broker MQTT"
   * Imposta la tua chiave, poi verifica il collegamento
 
-A questo punto la tua edge gateway è configurata.
+A questo punto la tua Edge Gateway è configurata.
 
 ## Collegarsi ai servizi
 
@@ -147,7 +156,7 @@ menù `tdm-config` seleziona "Mostra Configurazione per i Sensori".
 
 :warning: È fortemente consigliato cambiare le password preimpostate.
 
-### Edge gateway Unix account
+### Edge Gateway Unix account
 
     username: alarm
     password: alarm
