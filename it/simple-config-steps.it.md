@@ -43,10 +43,12 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 
 
 * Inserisci la scheda SD inizializzata nel Raspberry Pi ed accendi il dispositivo.
-* Al primo avvio l'Edge Gateway attiverà una propria rete WiFi.  Questa avrà un nome tipo `TDM_12345678`.
+* Al primo avvio l'Edge Gateway attiverà una propria rete WiFi.  Questa avrà un nome simile a `TDM_XXXXXXXX`.
   Cercala dal tuo PC e collegati.
   * La password per la rete è `tdmedgegateway`.
 * Collegati all'edge gateway con un client `ssh`:
+  * su sistemi Mac OS e Linux usando da terminale il comando `ssh`
+  * su sistemi Windows usando il programma `PuTTY` <https://www.putty.org/>
   * indirizzo IP: 192.168.2.1
   * nome utente: `alarm`
   * password:    `alarm`
@@ -61,15 +63,28 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 * Ricollegati all'Edge Gateway usando la nuova password:
   * indirizzo IP: 192.168.2.1
   * nome utente: `alarm`
-  * password:    *<nuova_password>*
+  * password:    *\<nuova_password\>*
 
 
-* Configura l'accesso alla rete Wifi domestica con il comando `tdm-config`:
+* Avvia il programma di configurazione dell'Edge Gateway `tdm-config` (richiede
+  la password dell'Edge):
 
     sudo tdm-config
+
+* Prima di effettuare le configurazioni occorre espandere il file system perché
+  questa oprazione potrebbe cancellare i dati presenti nella microSD:
+
+  * Entra nel menù "Espandi il Filesystem" e segui le istruzioni
+
+* Modifica password AP
+  * :warning: Se non modifichi la password, l'edge non attiverà più l'access
+    point Wifi -- neanche se non riesce a collegarsi alla Wifi domestica
+  * :writing_hand: Annota la nuova password per la wifi dell'Edge Gatway `TDM_XXXXXXXX`
+
 * Entra nel menù "Configurazione WiFi" e segui le istruzioni
-* :warning: Annota l'indirizzo IP assegnato dal router
-* :warning: Seleziona "Mostra Configurazioni Edge Gateway" e annota il hostname dell'edge
+* :writing_hand: Annota l'indirizzo IP assegnato dal router
+* :writing_hand: Seleziona "Mostra Configurazioni Edge Gateway" e annota il hostname dell'edge
+
 * Riavvia l'edge gateway con la voce nel menù `tdm-config`.
 
 
@@ -89,7 +104,7 @@ Se stai lavorando su Linux o MacOSX, puoi trovare l'edge gateway per nome
 
 * Recupera il hostname dell'edge gateway e usalo per collegarti con `ssh`. E.g.:
 
-    ssh alarm@tdm-edge-12345678.local
+    ssh alarm@tdm-edge-xxxxxxxx.local
 
 ### Trovare l'edge per indirizzo IP
 
@@ -98,7 +113,7 @@ fornito nel passo successivo.
 
 * Recupera l'indirizzo dell'edge gateway e usalo per collegarti con `ssh`. E.g.:
 
-    ssh alarm@192.168.1.34
+    ssh alarm@192.168.xxx.yyy
 
 :bulb: Anche su Windows puoi usare mDNS se installi il componente necessario.
 
@@ -109,10 +124,6 @@ Procedi a configurare l'edge gateway.
 
 Esegui `sudo tdm-config` e usa il menù per fare le seguenti cose.
 
-* Modifica password AP
-  * :warning: Se non modifichi la passoword, l'edge non attiverà più l'access
-    point Wifi -- neanche se non riesce a collegarsi alla Wifi domestica
-* Espandi il file system
 * Imposta le "Configurazioni Generali"
 * Se ti è stata fornita chiave MQTT:
   * Selezione la voce "Configurazioni MQTT", poi "Chiave Broker MQTT"
