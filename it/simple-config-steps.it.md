@@ -31,29 +31,34 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 *Se si dispone di un Edge o una scheda microSD preinstallata si può passare
   alla sezione "[Primo avvio e configurazione rete](#primo-avvio-e-configurazione-rete)"*
 
-* Scaricare l'immagine del sistema operativo: <http://s.crs4.it/Gk/tdmimage-latest.img.xz>
-* Scrivere l'immagine sulla scheda microSD
+* Scarica l'immagine del sistema operativo: <http://s.crs4.it/Gk/tdmimage-latest.img.xz>
+* Scrivi l'immagine sulla scheda microSD
   * Per sistemi Windows/Mac/Linux suggeriamo il software **Balena Etcher**: <http://www.balena.io/etcher/>
     * Installare il programma sul PC
     * Inserire la microSD nel portatile (eventualmente usando l'adattatore microSD/SD)
-    * Segui le istruzioni fornite dal programma
+    * Avviare Balena Etcher ed esegui i seguenti passi:
+      * clicca su ’Flash from file’ e seleziona il file immagine
+      * clicca su ’Select Target’ e seleziona il lettore di Schede SD (:warning: attenzione a selezionare il dispositivo corretto)
+      * clicca su ’Flash!’ per avviare la copia e attenderne il completamento
 
 
 ## Primo avvio e configurazione rete
 
 
 * Inserisci la scheda SD inizializzata nel Raspberry Pi ed accendi il dispositivo.
-* Al primo avvio l'Edge Gateway attiverà una propria rete WiFi.  Questa avrà un nome simile a `TDM_XXXXXXXX`.
-  Cercala dal tuo PC e collegati.
+* Al primo avvio l'Edge Gateway attiverà una propria rete WiFi. Questa avrà un
+  nome simile a `TDM_XXXXXXXX`. Cercala dal tuo PC e collegati.
   * La password per la rete è `tdmedgegateway`.
 * Collegati all'edge gateway con un client `ssh`:
   * su sistemi Mac OS e Linux usando da terminale il comando `ssh`
   * su sistemi Windows usando il programma `PuTTY` <https://www.putty.org/>
-  * indirizzo IP: 192.168.2.1
-  * nome utente: `alarm`
-  * password:    `alarm`
+  * indirizzo IP: **192.168.2.1**
+  * nome utente: **alarm**
+  * password:    **alarm**
 
+```bash
     ssh alarm@192.168.2.1
+```
 
 * Al primo avvio occorre cambiare la password dell'Edge Gateway. Scegli una nuova password.
 * Quando richiesto:
@@ -83,11 +88,9 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
   * :writing_hand: Annota la nuova password per la wifi dell'Edge Gatway `TDM_XXXXXXXX`
 
 * Entra nel menù "Configurazione WiFi" e segui le istruzioni
-
-* :writing_hand: Annota l'indirizzo IP assegnato dal router
+  * :writing_hand: Annota l'indirizzo IP assegnato dal router
 
 * :writing_hand: Seleziona "Mostra Configurazioni Edge Gateway" e annota il hostname dell'edge
-
 * Riavvia l'edge gateway con la voce nel menù `tdm-config`.
 
 
