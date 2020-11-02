@@ -29,7 +29,7 @@ Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 
 
 *Se si dispone di un Edge o una scheda microSD preinstallata si può passare
-  alla sezione "[Primo avvio e configurazione rete](#primo-avvio-e-configurazione-rete)"*
+  alla sezione "[Primo avvio](#primo-avvio)"*
 
 Per scrivere l'immagine del sistema operativo sulla scheda microSD suggeriamo
 il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
