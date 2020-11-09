@@ -74,4 +74,4 @@ E' possibile utilizzare il programma *ssh* (Linux/MacOS) per accedere all'Edge G
 
 ## Collegarsi all'Edge Gateway con PuTTY
 
-[!Inserimento IP](img/putty_ip.png)
+![Inserimento IP](/img/putty_ip.png)
