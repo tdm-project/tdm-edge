@@ -102,14 +102,27 @@ direttamente dal terminale saltando il collegamento tramite *ssh*.
   * digita la nuova passphrase
   * digita nuovamente la nuova passphrase come conferma
 
-:writing_hand: Annota la nuova passphrase per la wifi dell'Edge Gatway `TDM_XXXXXXXX`: questa ti servirà per raggiungere l'Edge qualora questo non riuscisse a collegarsi alla WiFi locale (per maggiori dettagli [Connessione all'AP dell'Edge](ap-connection-steps.it.md))
+:writing_hand: Annota la nuova passphrase per la wifi dell'Edge Gatway `TDM_XXXXXXXX`: questa ti servirà per raggiungere l'Edge qualora questo non riuscisse a collegarsi alla WiFi locale (per maggiori dettagli [Connessione all'AP dell'Edge](./it/ap-connection-steps.it.md))
 
 * Entra nel menù "*Configurazione WiFi*"
   * entra nel sottomenù "*Configurazione WiFi (Scansione Automatica SSID)*" e attendi il termine della ricerca delle reti WiFi locali
   * seleziona la tua rete WiFi locale
-  * inserisci lla passhprase della tua rete WiFi locale (non quella dell'Edge Gateway!)
+  * inserisci la passhprase della tua rete WiFi locale (non quella dell'Edge Gateway!)
 
 :writing_hand: Annota l'indirizzo IP assegnato dal router
+
+* (OPZIONALE) Se vuoi aggiungere la posizione dell'Edge ai dati trasmessi al
+  Cloud TDM Entra nel menù "*Configurazioni Generali*"
+  * entra nel sottomenù "*Coordinate GPS Locali*" e inserisci le coordinate GPS
+    dell'Edge (segui le istruzioni della schermata)
+
+* Per abilitare la trasmissione dei dati al Cloud TDM occorre configurare
+  l'indirizzo del Broker MQTT. Entra nel menù "*Configurazioni MQTT*"
+  * entra nel sottomenù "*Indirizzo Broker MQTT*" e inserisci l'indirizzo o il
+    nome del broker MQTT *che ti è stato fornito*
+
+* Entra nel menu "*Mostra Configurazioni Edge Gateway*"
+:writing_hand: annota l'*Edge Gateway Hostname* che dovrebbe essere simile a *tdm-edge-xxxxxxxx*: ti servirà per collegarti all'Edge Gateway in futuro.
 
 * Riavvia l'Edge Gateway con la voce nel menù `tdm-config`.
 
@@ -119,51 +132,42 @@ direttamente dal terminale saltando il collegamento tramite *ssh*.
 * Dopo il riavvio, l'Edge Gateway userà la configurazione appena impostata per
   collegarsi alla WiFi domestica.
 
-### Trovare l'Edge per nome
+* Per collegarsi all'Edge si possono usare:
 
-Se stai lavorando su Linux o MacOSX, puoi trovare l'Edge Gateway per nome
-(attraverso usando mDNS/Zeroconf/Avahi).
-
-* Recupera il hostname dell'Edge Gateway e usalo per collegarti con `ssh`. E.g.:
-
+  * l'indirizzo IP salvato durante la configurazione della rete WiFi domestica
+    ```bash
+    ssh alarm@www.xxx.yyy.zzz
+    ```
+  * il nome dell'host: **tdm-edge-xxxxxxxx**, es:
+    ```bash
+    ssh alarm@tdm-edge-xxxxxxxx
+    ```
+  * il nome dell'host: **tdm-edge-xxxxxxxx.local**, es:
+    ```bash
     ssh alarm@tdm-edge-xxxxxxxx.local
+    ```
 
-### Trovare l'Edge per indirizzo IP
-
-Se stai lavorando su Windows, puoi trovare l'Edge Gateway usando l'indirizzo IP
-fornito nel passo successivo.
-
-* Recupera l'indirizzo dell'Edge Gateway e usalo per collegarti con `ssh`. E.g.:
-
-    ssh alarm@192.168.xxx.yyy
-
-:bulb: Anche su Windows puoi usare mDNS se installi il componente necessario.
-
-
-## Configurazione
-
-Procedi a configurare l'Edge Gateway.
-
-Esegui `sudo tdm-config` e usa il menù per fare le seguenti cose.
-
-* Imposta le "Configurazioni Generali"
-* Se ti è stata fornita chiave MQTT:
-  * Selezione la voce "Configurazioni MQTT", poi "Chiave Broker MQTT"
-  * Imposta la tua chiave, poi verifica il collegamento
-
-A questo punto la tua Edge Gateway è configurata.
 
 ## Collegarsi ai servizi
 
-Per vedere gli indirizzi per accedere a Grafana e configurare i sensori, nel
-menù `tdm-config` seleziona "Mostra Configurazione per i Sensori".
+I parametri e gli indirizzi per accedere a Grafana e configurare i sensori
+possono essere recuperati eseguendo `tdm-config` e selezionando il menù "Mostra
+Configurazione per i Sensori".
 
 
-## Default accounts
+## Collegamento a Grafana
+
+* Per accedere alla Dashboard Web dell'Edge Gateway 'Grafana':
+  * aprire il browser web ed inserire l'indirizzo o l'hostname dell'Edge Gateway preceduto da **http://**:
+  * l'utente di default è '*admin*'
+  * la password di default è '*admin*' e verrà chiesto di cambiarla al primo accesso.
+
+
+### Default accounts
 
 :warning: È fortemente consigliato cambiare le password preimpostate.
 
-### Edge Gateway Unix account
+### Edge Gateway Unix account (al primo avvio)
 
     username: alarm
     password: alarm

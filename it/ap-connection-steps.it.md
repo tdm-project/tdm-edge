@@ -62,16 +62,21 @@ WiFi locale.
 
 L'attivazione dell'Access Point dell'Edge Gateway può essere resa permanente
 configurandolo opportunamente. Per far ciò occorre:
+
 * che la *passphrase* dell'Access Point dell'Edge sia stata modificata (ossia non è più quella di default);
+
 * entrare nella console dell'Edge Gateway tramite `ssh`:
 ```bash
 ssh alarm@<ip_o_hostname_dell_edge>
 ```
+
 * modificare il file `/etc/default/tdm-services`:
-  * aprire il file con un editor di testo:
+
+  * aprire il file con un editor di testo (inserire la password dell'Edge Gateway quando richiesto):
     ```bash
     sudo nano /etc/default/tdm-services
     ```
+
   * modificare la riga:
     ```ini
     ALWAYS_RUN_AP=0
@@ -87,4 +92,4 @@ ssh alarm@<ip_o_hostname_dell_edge>
     * **CTRL-O INVIO**
     * **CTRL-X**
 
-* riavviare l'Edge Gateway
+* riavviare l'Edge Gateway.
