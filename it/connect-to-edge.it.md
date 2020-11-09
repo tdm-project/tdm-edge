@@ -76,6 +76,6 @@ E' possibile utilizzare il programma *ssh* (Linux/MacOS) per accedere all'Edge G
 
 Per collegarsi all'Edge Gateway col programma PuTTY, impostare i seguenti parametri:
 
-![Inserimento IP](img/putty_ip.png)
-![Timeout](/img/putty_timeout.png)
-![Translation](/img/putty_translation.png)
+![Inserimento IP](../img/putty_ip.png)
+![Timeout](../img/putty_timeout.png)
+![Translation](../img/putty_translation.png)
