@@ -54,7 +54,7 @@ il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
 
 * Collegati all'Edge Gateway con un client *ssh*: su sistemi Mac OS e Linux
   usa da terminale il comando `ssh` mentre su sistemi Windows puoi usare il
-  programma `PuTTY` <https://www.putty.org/> (per ulteriori informazioni su l'uso di PuTTY vedere [Connessione all'Edge Gateway](/it/connect-to-edge.it.md):
+  programma `PuTTY` <https://www.putty.org/> (per ulteriori informazioni su l'uso di PuTTY vedere [Connessione all'Edge Gateway](connect-to-edge.it.md):
   * indirizzo IP: **192.168.2.1**
   * nome utente: **alarm**
   * password:    **alarm**
@@ -102,7 +102,7 @@ direttamente dal terminale saltando il collegamento tramite *ssh*.
   * digita la nuova passphrase
   * digita nuovamente la nuova passphrase come conferma
 
-:writing_hand: Annota la nuova passphrase per la wifi dell'Edge Gatway `TDM_XXXXXXXX`: questa ti servirà per raggiungere l'Edge qualora questo non riuscisse a collegarsi alla WiFi locale (per maggiori dettagli [Connessione all'AP dell'Edge](./it/ap-connection-steps.it.md))
+:writing_hand: Annota la nuova passphrase per la wifi dell'Edge Gatway `TDM_XXXXXXXX`: questa ti servirà per raggiungere l'Edge qualora questo non riuscisse a collegarsi alla WiFi locale (per maggiori dettagli [Connessione all'AP dell'Edge](it/ap-connection-steps.it.md))
 
 * Entra nel menù "*Configurazione WiFi*"
   * entra nel sottomenù "*Configurazione WiFi (Scansione Automatica SSID)*" e attendi il termine della ricerca delle reti WiFi locali
