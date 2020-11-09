@@ -54,7 +54,7 @@ il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
 
 * Collegati all'Edge Gateway con un client *ssh*: su sistemi Mac OS e Linux
   usa da terminale il comando `ssh` mentre su sistemi Windows puoi usare il
-  programma `PuTTY` <https://www.putty.org/>
+  programma `PuTTY` <https://www.putty.org/> (per ulteriori informazioni su l'uso di PuTTY vedere [Connessione all'Edge Gateway](/it/connect-to-edge.it.md):
   * indirizzo IP: **192.168.2.1**
   * nome utente: **alarm**
   * password:    **alarm**
