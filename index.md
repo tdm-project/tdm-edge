@@ -9,6 +9,7 @@ The TDM Edge Gateway is a Raspberry-Pi-based edge gateway device.
   * [Configurazione semplificata](it/simple-config-steps.it.md)
   * [Connessione all'Edge Gateway](it/connect-to-edge.it.md)
   * [Connessione all'AP dell'Edge](it/ap-connection-steps.it.md)
+  * [Configurazione del sensore indoor TDM](it/indoor-sensor-config.it.md)
 
 
 

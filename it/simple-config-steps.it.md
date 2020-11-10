@@ -154,6 +154,9 @@ I parametri e gli indirizzi per accedere a Grafana e configurare i sensori
 possono essere recuperati eseguendo `tdm-config` e selezionando il menù "Mostra
 Configurazione per i Sensori".
 
+Per dettagli sulla configurazioni dei specifici sensori:
+* [Configurazione del sensore indoor TDM](indoor-sensor-config.it.md)
+
 
 ## Collegamento a Grafana
 
