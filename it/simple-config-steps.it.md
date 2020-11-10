@@ -156,6 +156,7 @@ Configurazione per i Sensori".
 
 Per dettagli sulla configurazioni dei specifici sensori:
 * [Configurazione del sensore indoor TDM](indoor-sensor-config.it.md)
+* [Configurazione della stazione IoTaWatt](iotawatt-station-config.it.md)
 
 
 ## Collegamento a Grafana
