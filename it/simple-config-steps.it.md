@@ -46,7 +46,6 @@ il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
 
 ## Primo avvio
 
-
 1. Inserisci la scheda SD inizializzata nell'Edge Gateway ed accendi il
   dispositivo. Al primo avvio l'Edge Gateway attiverà una propria rete WiFi.
   Questa avrà un nome simile a `TDM_XXXXXXXX`. Cercala dal tuo PC e collegati.
@@ -69,7 +68,7 @@ il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
     * digita la nuova password
     * digita nuovamente la nuova password come conferma
 
-    :writing_hand: Annota la nuova password dell'Edge Gatway.
+     :writing_hand: Annota la nuova password dell'Edge Gatway.
 
 4. Ricollegati all'Edge Gateway usando la nuova password:
     * indirizzo IP: **192.168.2.1**
@@ -96,15 +95,18 @@ il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
     2. Entra nel menù "Espandi il Filesystem" e conferma l'operazione
 
 3. Modifica password AP
-:warning: Se non modifichi la password, l'Edge non attiverà più l'access point Wifi -- neanche se non riesce a collegarsi alla Wifi domestica
+
+    :warning: Se non modifichi la password, l'Edge non attiverà più l'access
+    point Wifi -- neanche se non riesce a collegarsi alla Wifi domestica
+    
     1. Entra nel menù "*Modifica passphrase AP*" e conferma l'operazione
     2. digita la nuova passphrase
     3. digita nuovamente la nuova passphrase come conferma
 
-    :writing_hand: Annota la nuova passphrase per la wifi dell'Edge Gatway
-    `TDM_XXXXXXXX`: questa ti servirà per raggiungere l'Edge qualora questo non
-    riuscisse a collegarsi alla WiFi locale (per maggiori dettagli [Connessione
-    all'AP dell'Edge](ap-connection-steps.it.md))
+     :writing_hand: Annota la nuova passphrase per la wifi dell'Edge Gatway
+     `TDM_XXXXXXXX`: questa ti servirà per raggiungere l'Edge qualora questo non
+     riuscisse a collegarsi alla WiFi locale (per maggiori dettagli [Connessione
+     all'AP dell'Edge](ap-connection-steps.it.md))
 
 4. Entra nel menù "*Configurazione WiFi*"
     * entra nel sottomenù "*Configurazione WiFi (Scansione Automatica SSID)*" e attendi il termine della ricerca delle reti WiFi locali
