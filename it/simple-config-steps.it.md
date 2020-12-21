@@ -54,11 +54,11 @@ il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
 
 2. Collegati all'Edge Gateway con un client *ssh*: su sistemi Mac OS e Linux
   usa da terminale il comando `ssh` mentre su sistemi Windows puoi usare il
-  programma `PuTTY` <https://www.putty.org/> (per ulteriori informazioni su l'uso di PuTTY vedere [Connessione all'Edge Gateway](connect-to-edge.it.md):
+  programma `PuTTY` <https://www.putty.org/> (per ulteriori informazioni su
+  l'uso di PuTTY vedere [Connessione all'Edge Gateway](connect-to-edge.it.md):
   * indirizzo IP: **192.168.2.1**
   * nome utente: **alarm**
   * password:    **alarm**
-
 ```bash
     ssh alarm@192.168.2.1
 ```
@@ -67,14 +67,12 @@ il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
   1. digita l'attuale password (*alarm*)
   2. digita la nuova password
   3. digita nuovamente la nuova password come conferma
-
 :writing_hand: Annota la nuova password dell'Edge Gatway.
 
 4. Ricollegati all'Edge Gateway usando la nuova password:
   * indirizzo IP: **192.168.2.1**
   * nome utente: **alarm**
   * password:    ***\<nuova_password\>***
-
 :bulb: Collegando l'Edge Gateway ad un monitor ed una tastiera puoi autenticarti
 direttamente dal terminale saltando il collegamento tramite *ssh*.
 
@@ -91,7 +89,6 @@ direttamente dal terminale saltando il collegamento tramite *ssh*.
 
 2. Prima di effettuare le configurazioni occorre espandere il file system perché
   questa operazione potrebbe cancellare i dati presenti nella microSD:
-
   1. Premi "OK" quando all'avviso per il fatto di non aver ancora modificato
     la password dell'access point.
   2. Entra nel menù "Espandi il Filesystem" e conferma l'operazione
@@ -99,18 +96,15 @@ direttamente dal terminale saltando il collegamento tramite *ssh*.
 3. Modifica password AP
   1. :warning: Se non modifichi la password, l'Edge non attiverà più l'access
     point Wifi -- neanche se non riesce a collegarsi alla Wifi domestica
-
   2. Entra nel menù "*Modifica passphrase AP*" e conferma l'operazione
   3. digita la nuova passphrase
   4. digita nuovamente la nuova passphrase come conferma
-
 :writing_hand: Annota la nuova passphrase per la wifi dell'Edge Gatway `TDM_XXXXXXXX`: questa ti servirà per raggiungere l'Edge qualora questo non riuscisse a collegarsi alla WiFi locale (per maggiori dettagli [Connessione all'AP dell'Edge](ap-connection-steps.it.md))
 
 4. Entra nel menù "*Configurazione WiFi*"
   * entra nel sottomenù "*Configurazione WiFi (Scansione Automatica SSID)*" e attendi il termine della ricerca delle reti WiFi locali
   * seleziona la tua rete WiFi locale
   * inserisci la passhprase della tua rete WiFi locale (non quella dell'Edge Gateway!)
-
 :writing_hand: Annota l'indirizzo IP assegnato dal router
 
 5. (OPZIONALE) Se vuoi aggiungere la posizione dell'Edge ai dati trasmessi al
