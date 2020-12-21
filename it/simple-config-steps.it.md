@@ -35,7 +35,7 @@ Per scrivere l'immagine del sistema operativo sulla scheda microSD suggeriamo
 il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
 <http://www.balena.io/etcher/>.
 
-* Scarica l'immagine del sistema operativo: <http://s.crs4.it/Gk/tdmimage-latest.img.xz>
+* Scarica l'immagine del sistema operativo: <http://s.crs4.it/HF>
 * Installa il programma Balena Etcher sul PC
 * Inserire la microSD nel portatile (eventualmente usando l'adattatore microSD/SD)
 * Avvia Balena Etcher ed esegui i seguenti passi:
