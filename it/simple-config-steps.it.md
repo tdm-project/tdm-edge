@@ -109,16 +109,19 @@ il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
      all'AP dell'Edge](ap-connection-steps.it.md))
 
 4. Entra nel menù "*Configurazione WiFi*"
-    * entra nel sottomenù "*Configurazione WiFi (Scansione Automatica SSID)*" e attendi il termine della ricerca delle reti WiFi locali
-    * seleziona la tua rete WiFi locale
-    * inserisci la passhprase della tua rete WiFi locale (non quella dell'Edge Gateway!)
+    1. entra nel sottomenù "*Configurazione WiFi (Scansione Automatica SSID)*" e attendi il termine della ricerca delle reti WiFi locali
+    2. seleziona la tua rete WiFi locale
+    3. inserisci la passhprase della tua rete WiFi locale (non quella dell'Edge Gateway!)
 
     :writing_hand: Annota l'indirizzo IP assegnato dal router
 
 5. (OPZIONALE) Se vuoi aggiungere la posizione dell'Edge ai dati trasmessi al
   Cloud TDM Entra nel menù "*Configurazioni Generali*"
-    * entra nel sottomenù "*Coordinate GPS Locali*" e inserisci le coordinate GPS
-      dell'Edge (segui le istruzioni della schermata)
+    * Entra nel sottomenù "*Coordinate GPS Locali*" e inserisci le coordinate GPS
+      dell'Edge (segui le istruzioni della schermata). È relativamente semplice
+      recuperare le proprie coordinate GPS da Google Maps, ma ricorda che Maps
+      te le presenta invertite (latitudine longitudine invece di longitudine
+      latitudine)
 
 6. Per abilitare la trasmissione dei dati al Cloud TDM occorre configurare
   l'indirizzo del Broker MQTT. Entra nel menù "*Configurazioni MQTT*"
@@ -126,6 +129,7 @@ il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
       nome del broker MQTT *che ti è stato fornito*
 
 7. Entra nel menu "*Mostra Configurazioni Edge Gateway*"
+
     :writing_hand: annota l'*Edge Gateway Hostname* che dovrebbe essere simile a
     *tdm-edge-xxxxxxxx*: ti servirà per collegarti all'Edge Gateway in futuro.
     
