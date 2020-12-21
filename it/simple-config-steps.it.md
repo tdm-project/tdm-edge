@@ -2,7 +2,7 @@
 
 # Configurazione semplificata del TDM Edge Gateway
 
-Si da per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
+Si dà per scontato che il lettore sappia usare gli strumenti Linux/Unix di base.
 
 ## Procedura
 
@@ -39,9 +39,9 @@ il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
 2. Installa il programma Balena Etcher sul PC
 3. Inserire la microSD nel portatile (eventualmente usando l'adattatore microSD/SD)
 4. Avvia Balena Etcher ed esegui i seguenti passi:
-  a. clicca su ’*Flash from file*’ e seleziona il file immagine
-  b. clicca su ’*Select Target*’ e seleziona il lettore di Schede SD (attenzione a selezionare il dispositivo corretto)
-  c. clicca su ’*Flash!*’ per avviare la scrittura e attendi il completamento
+  1. clicca su ’*Flash from file*’ e seleziona il file immagine
+  2. clicca su ’*Select Target*’ e seleziona il lettore di Schede SD (attenzione a selezionare il dispositivo corretto)
+  3. clicca su ’*Flash!*’ per avviare la scrittura e attendi il completamento
 
 
 ## Primo avvio
@@ -64,9 +64,9 @@ il software **Balena Etcher** disponibile per i sistemi Windows/Mac/Linux:
 ```
 
 3. Al primo avvio occorre cambiare la password dell'Edge Gateway. Scegli una nuova password. Quando richiesto:
-  a. digita l'attuale password (*alarm*)
-  b. digita la nuova password
-  c. digita nuovamente la nuova password come conferma
+  1. digita l'attuale password (*alarm*)
+  2. digita la nuova password
+  3. digita nuovamente la nuova password come conferma
 
 :writing_hand: Annota la nuova password dell'Edge Gatway.
 
@@ -92,17 +92,17 @@ direttamente dal terminale saltando il collegamento tramite *ssh*.
 2. Prima di effettuare le configurazioni occorre espandere il file system perché
   questa operazione potrebbe cancellare i dati presenti nella microSD:
 
-  a. Premi "OK" quando all'avviso per il fatto di non aver ancora modificato
+  1. Premi "OK" quando all'avviso per il fatto di non aver ancora modificato
     la password dell'access point.
-  b. Entra nel menù "Espandi il Filesystem" e conferma l'operazione
+  2. Entra nel menù "Espandi il Filesystem" e conferma l'operazione
 
 3. Modifica password AP
-  a. :warning: Se non modifichi la password, l'Edge non attiverà più l'access
+  1. :warning: Se non modifichi la password, l'Edge non attiverà più l'access
     point Wifi -- neanche se non riesce a collegarsi alla Wifi domestica
 
-  b. Entra nel menù "*Modifica passphrase AP*" e conferma l'operazione
-  c. digita la nuova passphrase
-  d. digita nuovamente la nuova passphrase come conferma
+  2. Entra nel menù "*Modifica passphrase AP*" e conferma l'operazione
+  3. digita la nuova passphrase
+  4. digita nuovamente la nuova passphrase come conferma
 
 :writing_hand: Annota la nuova passphrase per la wifi dell'Edge Gatway `TDM_XXXXXXXX`: questa ti servirà per raggiungere l'Edge qualora questo non riuscisse a collegarsi alla WiFi locale (per maggiori dettagli [Connessione all'AP dell'Edge](ap-connection-steps.it.md))
 
@@ -115,12 +115,12 @@ direttamente dal terminale saltando il collegamento tramite *ssh*.
 
 5. (OPZIONALE) Se vuoi aggiungere la posizione dell'Edge ai dati trasmessi al
   Cloud TDM Entra nel menù "*Configurazioni Generali*"
-  a. entra nel sottomenù "*Coordinate GPS Locali*" e inserisci le coordinate GPS
+  * entra nel sottomenù "*Coordinate GPS Locali*" e inserisci le coordinate GPS
     dell'Edge (segui le istruzioni della schermata)
 
 6. Per abilitare la trasmissione dei dati al Cloud TDM occorre configurare
   l'indirizzo del Broker MQTT. Entra nel menù "*Configurazioni MQTT*"
-  a. entra nel sottomenù "*Indirizzo Broker MQTT*" e inserisci l'indirizzo o il
+  * entra nel sottomenù "*Indirizzo Broker MQTT*" e inserisci l'indirizzo o il
     nome del broker MQTT *che ti è stato fornito*
 
 7. Entra nel menu "*Mostra Configurazioni Edge Gateway*"
