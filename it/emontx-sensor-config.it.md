@@ -6,6 +6,7 @@ I sensori dell'EmonTx sono rappresentati da una fotocellula per il conteggio dei
 
 La figura seguente mostra l'installazione del dispositivo su un normale contatore domestico.
 
+![Setup Menu](img/emontx-installazione.jpg)
 
 ## Procedura passo passo
 
