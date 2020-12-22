@@ -22,7 +22,7 @@ Per l'installazione sarà necessario l'utilizzo di un cacciavite a stella di med
 
 La sonda va collegata alla morsettiera coi pin numerati da 1 a 6, come mostrato nella figura seguente.
 
-![Collegamente sonda di temperatura](img/emontx-installazione.jpg)
+![Collegamente sonda di temperatura](img/emontx1.jpg)
 
 1. Passare il cavo della sonda attraverso il foro del pannello esterno
    corrispondenza della morsettiera, è la feritoia con l'indicazione 123456 relativa ai morsetti; tenere conto di quale sia il lato esterno del pannello in plastica, il lato stampato deve essere posizionato all'esterno e deve essere possibile riavvitare il pannello al contenitore in alluminio.
@@ -36,6 +36,8 @@ Morsetto  | Sonda
 5 (Dig19) | Rosso (Power)
 6 (Dig5) 	| Bianco (Data)
 
+guardando la scheda dall'alto e tenendo la morsettiera in basso a sinistra, i morsetti sono numerati da 1 a 6 da sinistra verso destra.
+
 4. stringere le viti 3, 5 e 6 della morsettiera e assicurarsi che la sonda sia ben collegata ed i fili non escano dai morsetti; se così non fosse ripetere l'operazione a partire dal punto 2.
 
 ### 3. Installare pile
@@ -46,35 +48,36 @@ Inserire le pile stilo nell'apposita sede sulla scheda. Verificare la correttezz
 
 Infilare la scheda nella sua sede, collocare il coperchio e fissare con le viti, evitando di stringere troppo. Le viti potrebbero essere un po' dure da stringere.
 
+![Chiusura EmonTx](img/emontx2.jpg)
+
+
 ### 5. Installare l'antenna
 
 L'antenna di trasmissione va avvitata all'apposito connettore filettato, posto sullo stesso lato del connettore della sonda di temperatura.
 
-
+![Installazione antenna](img/emontx3.jpg)
 
 
 ### 6. Collegare la fotocellula
 
-La fotocellula si collega alla porta RJ-45.
+Infine collegare la fotocellula alla porta RJ-45, come mostrato nella figura seguente.
+
+![Installazione fotocellula](img/emontx4.jpg)
 
 
 ### 7. Collocare in sede
 
-A questo punto, l'emonTx è pronto per monitorare il flusso di energia
-misurato dal contatore.  Monitoreremo i consumi attraverso le pulsazioni
-della luce indicatrice del contatore.
-
-**La luce da monitorare è tipicalmente quella in alto alla sinistra del display;** lampeggia di rosso.  Oggi pulso di questa luce indica il consumo di 1 Wh di
+A questo punto, l'emonTx è pronto per monitorare il flusso di energia misurato dal contatore.  Monitoreremo i consumi attraverso gli impulsi luminosi del contatore.
+**La luce da monitorare è tipicalmente quella in alto alla sinistra del display;** lampeggia di rosso.  Oggi impulso di questa luce indica il consumo di 1 Wh di
 energia.
 
-1. Attaccare il cerchio in velcro autoadesivo al contatore sopra la lucina da
-   monitorare, assicurandosi che la lucina sia visibile attraverso il foto
-  centrale.
-2. Installare la fotocellula collegata all'emonTx sul velcro.
+1. Attaccare il cerchio in velcro autoadesivo al contatore sopra la luce da monitorare, assicurandosi che la luce rossa intermittente sia visibile attraverso il foro centrale del velcro, come mostrato in figura.
 
-L'emonTx andrà poggiato da qualche parte -- e.g., sul contatore, o in fondo
-all'armadietto, oppure fissato con del velcro in modo che possa essere
-facilmente estratto per sostituire le pile.
+![Installazione velcro](img/emontx5.jpg)
+
+2. L'emonTx andrà alloggiato in prossimità del contatore, ad esempio sopra il contatore stesso come mostrato nella prima figura, o in fondo all'armadietto, oppure fissato con del velcro o altro adesivo in modo che possa essere facilmente estratto per sostituire le pile.
+
+3. Installare la fotocellula collegata all'emonTx sul velcro, sulla fotocellula è presente un led verde, se tutto è andato a buon fine e la fotocellula è ben allineata sul velcro, il led verde lampeggerà con la stessa frequenza del led rosso a cui è stato collegato.
 
 ### 8. Finito!
 
