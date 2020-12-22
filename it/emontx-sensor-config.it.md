@@ -1,5 +1,12 @@
 # Configurazione del sensore emonTx
 
+Il sistema EmonTx permette il monitoriaggio dei propri consumi elettrici attraverso il conteggio degli impulsi ottici del comune contatore elettrico domestico, non richiede pertanto l'apertura del quadro elettrico e la manipolazione dei cavi, non necessita di configurazioni complesse per il conferimento delle misurazioni al database dell'Edge, ed è alimentato tramite pile stilo, pertanto non richiede l'installazione di prese dedicate.
+
+I sensori dell'EmonTx sono rappresentati da una fotocellula per il conteggio dei pulse e da una sonda per la misurazione della temperatura ambientale.
+
+La figura seguente mostra l'installazione del dispositivo su un normale contatore domestico.
+
+
 ## Procedura passo passo
 
 ### 1. Aprire l'emonTx
