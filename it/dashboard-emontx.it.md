@@ -1,6 +1,6 @@
 # Dashboard EmonTx
 
-Accedendo all'indirizzo dell'edge nella LAN viene presentata una schermata di login per Grafana, il sistma utilizzato per la visualizzazione delle proprie misurazioni conservate nel database dell'Edge. Le credenziali standard sono **admin, admin**, ma se ne consiglia la modifica per evidenti esigenze di sicurezza. 
+Accedendo all'indirizzo dell'edge nella LAN viene presentata una schermata di login per Grafana, il sistma utilizzato per la visualizzazione delle proprie misurazioni conservate nel database dell'Edge. Le credenziali standard sono (**admin, admin**), ma se ne consiglia la modifica per evidenti esigenze di sicurezza. 
 
 ## Definizione delle sorgenti di dati
 
