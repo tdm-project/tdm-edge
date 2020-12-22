@@ -72,7 +72,7 @@ La figura seguente mostra i due pannelli utilizzati per la visualizzazione dei c
 
 La figura seguente mostra invece le visualizzazioni standard per l'andamento della temperatura rilevata nelle ultime due settimane di dati. Si è scelto un intervallo di variazione più ampio per permettere di apprezzare le variazioni di lungo periodo dovute ai cambiamenti stagionali. Nella figura è anche evidente un salto nella misura dovuto ad un riposizionamento della sonda, un effetto di cui occorrerà tenere conto nella elaborazione dei dati. Dal primo plot oltre al chiaro trend di crescita si può apprezzare anche la periodicità giornaliera delle rilevazioni, con un incremento progressivo durante il giorno ed una diminuzione della temperatura durante la notte. L'istogramma del secondo pannello mostra la bassa variabilità delle misure.
 
-[Dashboard per EmonTX, pannelli con la visualizzazione delle variazioni della temperatura rilevata nelle ultime 2 settimane](img/dash-temp.png)
+![Dashboard per EmonTX, pannelli con la visualizzazione delle variazioni della temperatura rilevata nelle ultime 2 settimane](img/dash-temp.png)
 
 
 
