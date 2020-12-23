@@ -24,3 +24,11 @@ possibilità di creare due reti Wifi diverse -- una coi più moderni standard co
 quest'ultima soluzione si consiglia di usare nomi (SSID) diversi per le due reti
 (e.g., "casa" e "casa-5g").
 
+
+## Quanto lontano posso posizionare l'EmonTx dal mio edge
+
+Abbiamo verificato il buon funzionamento di installazioni con distanze anche di
+50 m e due pareti tra EmonTx e Edge.  Bisogna comunque tenere presente che
+maggiore sarà il numero di pareti che il segnale dovrà attraversare attraversare
+e minore sarà la distanza percorribile.
+
