@@ -12,6 +12,12 @@ The TDM Edge Gateway is a Raspberry-Pi-based edge gateway device.
   * [Configurazione del sensore indoor TDM](it/indoor-sensor-config.it.md)
   * [Configurazione della stazione IoTaWatt](it/iotawatt-station-config.it.md)
 
+## FAQ
+
+Nella sezione [FAQ](it/faq.it.md) trovate un elenco di domande e problemi con le
+corrispondenti soluzioni.
+
+
 
 
 ## Links

@@ -1,30 +1,50 @@
 # Dashboard EmonTx
 
-Accedendo all'indirizzo dell'edge nella LAN viene presentata una schermata di login per Grafana, il sistma utilizzato per la visualizzazione delle proprie misurazioni conservate nel database dell'Edge. Le credenziali standard sono (**admin, admin**), ma se ne consiglia la modifica per evidenti esigenze di sicurezza. 
+Accedendo [all'indirizzo dell'edge nella LAN](it/connect-to-edge.it.md) viene presentata una schermata di login per Grafana, il sistema utilizzato per la visualizzazione delle proprie misurazioni conservate nel database dell'edge. Ricordiamo che [le credenziali preimpostate](it/simple-config-steps.md#Default-accounts) sono (**admin, admin**), ma se ne consiglia la modifica per evidenti esigenze di sicurezza.
 
 ## Definizione delle sorgenti di dati
 
-Effettuato l'accesso Grafana prevede come primo passo la definizione delle sorgenti dei dati da visualizzare. Queste sorgenti sono preconfigurate come mostrato in figura seguente.
+Effettuato l'accesso Grafana prevede come primo passo la definizione delle sorgenti dei dati da visualizzare. Potresti avere delle sorgenti dati preconfigurate -- per esempio, come quelle come mostrate nella figura seguente.
 
 ![Sorgenti di dati in Grafana](img/grafana-sources.png)
 
-Si tratta delle sorgenti di dati:
-- Meteo, associata al database *luftdaten*,
-- IotaWatt associata al database: *iotawatt*, 
-- EmonTX associata al database *Emon*, 
-- EdgeGateway associata al database *edgedevicehandler*.
+Ciascuna sorgente preconfigurata in Grafana fa riferimento ad un database
+specifico nell'installazione di [InfluxDB](https://www.influxdata.com/) interna
+al dispositivo edge.  Ecco le corrispondenze tra fonte e database:
 
-Tra questa sorgenti IotaWatt è associata al sistema di misurazione avanzato, ed EmonTX è associato al sistema di misurazione base. Ci concentreremo su quest'ultimo.
+Fonte Grafana | Database InfluxDB
+------------- | -------------------
+Meteo         | luftdaten
+IotaWatt      | iotawatt
+EmonTX        | Emon
+EdgeGateway   | edgedevicehandler
+
+Per la dashboard EmonTx descritta in questa parte della guida, solo la fonte EmonTX è rilevante.
+
 
 ## Definizione di una dashboard
 
-Il secondo passo consiste nella definizione di una visualizzazione. Questa può essere definita totalmente dall'utente utilizzando componenti standard, ma per facilitare l'utilizzo da un utente non esperto sono state predisposte dei cruscotti standard liberamente distribuiti nella repository di Grafana.
+Il secondo passo consiste nella definizione di una visualizzazione -- le
+*dashboard* di Grafana.
+
+È possibile installare delle dashboard pubbliche condivise attraverso
+l'[archivio pubblico di Grafana](https://grafana.com/grafana/dashboards).  Nei
+seguenti passi vedremo come installare una dashboard preconfigurata per
+l'EmonTx.
 
 Le visualizzazioni sono gestite attraverso il menu Dashboards-Manage come mostrato in figura seguente
 
 ![Gestione delle dashboards](img/grafana-manage.png)
 
-Tramite il pulsante **Import** mostrato in figura è possibile una dashboard preconfigurata dall'[archivio pubblico di Grafana](https://grafana.com/grafana/dashboards). Ad ogni dashboard è associato un numero identificativo che basterà inserire nel campo apposito, ed in seguito premere il pulsante **Load**. Nel caso mostrato nella figura seguente viene importata la dashboard **11717** che costituisce il riferimento per il sistema di monitoraggio base, e che verrà presentata in maggiore dettaglio nella prossima sezione. 
+Tramite il pulsante **Import** mostrato in figura è possibile importare una dashboard
+preconfigurata dall'[archivio pubblico di
+Grafana](https://grafana.com/grafana/dashboards). Ad ogni dashboard nel
+repository è associato
+un numero identificativo che basterà inserire nel campo apposito, ed in seguito
+premere il pulsante **Load**. Nel caso mostrato nella figura seguente viene
+importata la dashboard **11717** che è preconfigurata per visualizzare i
+dati generati dall'EmonTx, e che verrà presentata in maggiore dettaglio nella
+prossima sezione.
 
 ![Importazione dashboard](img/grafana-import.png)
 
@@ -32,16 +52,16 @@ Per completare l'importazione della dashboard occorre associare la sorgente di d
 
 ![Definizione delle sorgenti di dati](img/grafana-select.png)
 
-La dashboard è a questo punto totalmente configurata, e mostra i dati conservati nel database locale. Il risultato sarà simile a quello mostrato nella figura seguente, una volta che dati a sufficienza saranno presenti nel database.
+La dashboard è a questo punto totalmente configurata e mostra i dati conservati nel database locale. Il risultato sarà simile a quello mostrato nella figura seguente, una volta che dati a sufficienza saranno presenti nel database.
 
 ![Dashboard configurata](img/grafana-emontx.png)
 
 
-## Interfaccia utente ed esempio di fruizione
+### Interfaccia utente ed esempio di fruizione
 
 Esamineremo brevemente alcuni elementi dell'interfaccia standard per la consultazione dei dati di consumo energetico e di temperatura ambientale, fruibile attraverso l'edge device.
 
-Una volta completato l'accesso all'edge attraverso l'interfaccia web di Grafana, viene presentata la visualizzazione della figura seguente che mostra lo stato attuale della potenza assorbita dall'impianto nell'ultimo intervallo temporale, l'energia consumata a partire dalla mezzanotte, e la temperatura attuale rilevata dalla sonda. 
+Una volta completato l'accesso all'edge attraverso l'interfaccia web di Grafana, viene presentata la visualizzazione della figura seguente che mostra lo stato attuale della potenza assorbita dall'impianto nell'ultimo intervallo temporale, l'energia consumata a partire dalla mezzanotte, e la temperatura attuale rilevata dalla sonda.
 
 ![Dashboard per EmonTX con visualizzazione dello stato rilevato](img/dash-status.png)
 
@@ -63,7 +83,7 @@ Nel caso mostrato nella figura seguente viene selezionata la misurazione *pulse*
 
 ![Dashboard per EmonTX, query per la visualizzazione della potenza assorbita](img/dash-query.png)
 
-Come detto è possibile effettuare elaborazioni più complesse rispetto a quella mostrata. 
+Come detto è possibile effettuare elaborazioni più complesse rispetto a quella mostrata.
 
 Altre schede di configurazione del pannello permettono di definire l'aspetto del grafico, e di definire condizioni per le quali vengano attivati degli Alert (si pensi al banale superamento di una soglia di consumo).
 
@@ -76,4 +96,9 @@ La figura seguente mostra invece le visualizzazioni standard per l'andamento del
 ![Dashboard per EmonTX, pannelli con la visualizzazione delle variazioni della temperatura rilevata nelle ultime 2 settimane](img/dash-temp.png)
 
 
+## Definire le proprie dashboard
+
+L'installazione di Grafana fornite sull'edge è molto versatile e consente la
+definizione di dashboard personalizzate per visualizzare qualsiasi serie
+temporale disponibile nel database.  Il sito di Grafana si trovano [numerosi tutorial](https://grafana.com/tutorials/) che spiegano come usare lo strumento.
 
