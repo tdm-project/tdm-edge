@@ -41,3 +41,84 @@ Per configurare la IoTaWatt affinché trasmetta le misure rilevate dai sensori a
 ![InfluxDB](img/iotawatt_influxdb.png)
 
 ## Convenzione per i nomi delle misure
+
+### Nomenclatura 
+
+Per i nomi delle misure si segue il seguente formato:  `TYPE[-N][-P]_UNIT`
+
+| Simbolo | Obbligatorio? | Definizione                                                                                                         |
+| ------- | ---------     | -----------                                                                                                         |
+| TYPE    | si            | uno dei nomi definiti nelle tabelle seguenti                                                                        |
+| N       | no            | un numero da indicare nel caso siano presenti più istanze dello stesso tipo (ad esempio `LIGHTS-1_W`, `LIGHTS-2_W`) |
+| P       | no            | **solo per impianti trifase** è una delle lettere 'A', 'B', 'C', 'N' ad indicare le fasi A, B, e C ed il neutro     |
+| UNIT    | si            | P per *Potenza* oppure V per *Volt*                                                                                 |
+
+
+### Unità di misura
+
+Per la linea di tensione si comunicano i volt. **Per tutte le misure di carico e
+generazione, la convenzione è di comunicare la potenza e quindi i watt**.
+
+La corrispondenza tra lettera usata nel nome l'unità da selezionare nella
+configurazione dello IoTaWatt è nella seguente tabella.
+
+| Lettera | Misura   | Unità IoTaWatt |
+| ---     | ---      | ---            |
+| P       | Potenza  | W              |
+| V       | Tensione | V              |
+
+### Polarità delle potenze
+
+* Positive in caso di assorbimento;
+* negative in caso di generazione/immissione in rete.
+
+### Linee di alimentazione
+
+| Nome   | Descrizione                                                                                                                        | Esempio    |
+| ----   | -----------                                                                                                                        | -------    |
+| LINE   | Scambio netto con la rete elettrica; **positivo in assorbimento**, **negativo in caso di immissione** di eccedenze da generazione. | `LINE_W`   |
+| LOAD   | Assorbimento totale da tutti i carichi                                                                                             | `LOAD_W`   |
+| LINE-A | Fase 1 - per impianti trifase                                                                                                      | `LINE-A_P` |
+| LINE-B | Fase 2 - per impianti trifase                                                                                                      | `LINE-B_P` |
+| LINE-C | Fase 3 - per impianti trifase                                                                                                      | `LINE-C_P` |
+| LINE-N | Neutro - per impianti trifase                                                                                                      | `LINE-N_P` |
+| V      | Tensione                                                                                                                           | `V_V`      |
+
+
+### Linee di generazione
+
+Per i generatori, riportare valori negativi quando sta generando; positivi quando sta consumando.
+
+| Nome | Descrizione             | Esempio |
+| ---- | -----------             | ---     |
+| PV   | Generatore fotovoltaico | `PV_W`  |
+| WT   | Generatore eolico       | `WT_W`  |
+
+
+### Linee di carichi vari
+
+Coi carichi si chiede di configurare tutti nomi applicabili all'impianto.
+Potremmo quindi avere configurazioni dove alla stessa pinza corrispondono più
+misure (e.g., `KITCHEN`, `FRIDGE`, `DISH`, `OVEN` ecc.)
+
+| Nome    | Descrizione                                           | Esempio    |
+| ----    | -----------                                           | ---        |
+| BATH    | Bagno                                                 | `BATH-1_W` |
+| CAR     | Ricarica automobile                                   |            |
+| DISH    | Lavastoviglie                                         | `DISH_W`   |
+| DRYER   | Asciugatrice                                          |            |
+| FRIDGE  | Frigorifero                                           |            |
+| HVAC    | Climatizzazione, ventilazione (e.g., pompe di calore) |            |
+| KITCHEN | Cucina - Forno, fornelli elettrici, ecc.              |            |
+| LAUNDRY | Bucato - Lavatrice, asciugatrice                      |            |
+| LIGHTS  | Luci                                                  |            |
+| LIVING  | Soggiorno                                             |            |
+| OFFICE  | Ufficio                                               |            |
+| OUTDOOR | Giardino, spazio esterno                              |            |
+| OVEN    | Forno                                                 |            |
+| PRINT   | Stampanti                                             |            |
+| PUMP    | Autoclave                                             |            |
+| ROOM    | Stanza                                                |            |
+| TVE     | TV e home entertainment                               |            |
+| WASH    | Lavatrice                                             |            |
+| WATER   | Riscaldamento acqua calda sanitaria                   |            |
