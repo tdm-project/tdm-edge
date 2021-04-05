@@ -49,7 +49,7 @@ Per i nomi delle misure si segue il seguente formato:  `TYPE[-N][-P]_UNIT`
 | Simbolo | Obbligatorio? | Definizione                                                                                                         |
 | ------- | ---------     | -----------                                                                                                         |
 | TYPE    | si            | uno dei nomi definiti nelle tabelle seguenti                                                                        |
-| N       | no            | un numero da indicare nel caso siano presenti più istanze dello stesso tipo (ad esempio `LIGHTS-1_W`, `LIGHTS-2_W`) |
+| N       | no            | un numero da indicare nel caso siano presenti più istanze dello stesso tipo (ad esempio `LIGHTS-1_P`, `LIGHTS-2_P`) |
 | P       | no            | **solo per impianti trifase** è una delle lettere 'A', 'B', 'C', 'N' ad indicare le fasi A, B, e C ed il neutro     |
 | UNIT    | si            | P per *Potenza* oppure V per *Volt*                                                                                 |
 
@@ -76,8 +76,8 @@ configurazione dello IoTaWatt è nella seguente tabella.
 
 | Nome   | Descrizione                                                                                                                        | Esempio    |
 | ----   | -----------                                                                                                                        | -------    |
-| LINE   | Scambio netto con la rete elettrica; **positivo in assorbimento**, **negativo in caso di immissione** di eccedenze da generazione. | `LINE_W`   |
-| LOAD   | Assorbimento totale da tutti i carichi                                                                                             | `LOAD_W`   |
+| LINE   | Scambio netto con la rete elettrica; **positivo in assorbimento**, **negativo in caso di immissione** di eccedenze da generazione. | `LINE_P`   |
+| LOAD   | Assorbimento totale da tutti i carichi                                                                                             | `LOAD_P`   |
 | LINE-A | Fase 1 - per impianti trifase                                                                                                      | `LINE-A_P` |
 | LINE-B | Fase 2 - per impianti trifase                                                                                                      | `LINE-B_P` |
 | LINE-C | Fase 3 - per impianti trifase                                                                                                      | `LINE-C_P` |
@@ -91,8 +91,8 @@ Per i generatori, riportare valori negativi quando sta generando; positivi quand
 
 | Nome | Descrizione             | Esempio |
 | ---- | -----------             | ---     |
-| PV   | Generatore fotovoltaico | `PV_W`  |
-| WT   | Generatore eolico       | `WT_W`  |
+| PV   | Generatore fotovoltaico | `PV_P`  |
+| WT   | Generatore eolico       | `WT_P`  |
 
 
 ### Linee di carichi vari
@@ -103,9 +103,9 @@ misure (e.g., `KITCHEN`, `FRIDGE`, `DISH`, `OVEN` ecc.)
 
 | Nome    | Descrizione                                           | Esempio    |
 | ----    | -----------                                           | ---        |
-| BATH    | Bagno                                                 | `BATH-1_W` |
+| BATH    | Bagno                                                 | `BATH-1_P` |
 | CAR     | Ricarica automobile                                   |            |
-| DISH    | Lavastoviglie                                         | `DISH_W`   |
+| DISH    | Lavastoviglie                                         | `DISH_P`   |
 | DRYER   | Asciugatrice                                          |            |
 | FRIDGE  | Frigorifero                                           |            |
 | HVAC    | Climatizzazione, ventilazione (e.g., pompe di calore) |            |
