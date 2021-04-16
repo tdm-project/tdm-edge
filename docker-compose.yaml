@@ -76,7 +76,7 @@ services:
     restart: always
 
   influxdb:
-    image: influxdb:1.7.9
+    image: influxdb:1.8.4
     container_name: tdm_influxdb
     environment:
       - INFLUXDB_REPORTING_DISABLED=true
