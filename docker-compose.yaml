@@ -23,6 +23,7 @@ services:
       - tdm_edge
     volumes:
       - ./configs/tdm/:/opt/configs/
+      - /var/run/wpa_supplicant/:/var/run/wpa_supplicant/
     restart: always
 
   feinstaub:
@@ -76,7 +77,7 @@ services:
     restart: always
 
   influxdb:
-    image: influxdb:1.7.9
+    image: influxdb:1.8.6
     container_name: tdm_influxdb
     environment:
       - INFLUXDB_REPORTING_DISABLED=true
