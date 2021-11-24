@@ -119,6 +119,7 @@ misure (e.g., `KITCHEN`, `FRIDGE`, `DISH`, `OVEN` ecc.)
 | PRINT   | Stampanti                                             |            |
 | PUMP    | Autoclave                                             |            |
 | ROOM    | Stanza                                                |            |
+| SOCKETS | Prese / Forza Elettromotrice                          |            |
 | TVE     | TV e home entertainment                               |            |
 | WASH    | Lavatrice                                             |            |
 | WATER   | Riscaldamento acqua calda sanitaria                   |            |
