@@ -83,7 +83,7 @@ energia.
 
 Ora puoi procedere all'installazione di una dashboard Grafana per visualizzare i
 dati che il dispositivo sta generando. La procedura è descritta nella
-[successiva parte della guida](it/dashboard-emontx.it.md)
+[successiva parte della guida](dashboard-emontx.it.md)
 
 
 
