@@ -39,7 +39,7 @@ Timestamp     A/R    Flags  if Domain               Service Type         Instanc
 ```
 mentre col comando (aggiungere *.local* all'hostname nel comando)
 ```
-dns-sb -G v4 tdm-edge-xxxxxxxx.local
+dns-sd -G v4 tdm-edge-xxxxxxxx.local
 DATE: ---Mon 09 Nov 2020---
 20:26:15.508  ...STARTING...
 Timestamp     A/R    Flags if Hostname                               Address                                      TTL
