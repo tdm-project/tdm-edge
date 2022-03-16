@@ -44,12 +44,12 @@ Per configurare la IoTaWatt affinché trasmetta le misure rilevate dai sensori a
 
 ### Nomenclatura 
 
-Per i nomi delle misure si segue il seguente formato:  `TYPE[-N][-P]_UNIT`
+Per i nomi delle misure si segue il seguente formato:  `TYPE[N][P]_UNIT`
 
 | Simbolo | Obbligatorio? | Definizione                                                                                                         |
 | ------- | ---------     | -----------                                                                                                         |
 | TYPE    | si            | uno dei nomi definiti nelle tabelle seguenti                                                                        |
-| N       | no            | un numero da indicare nel caso siano presenti più istanze dello stesso tipo (ad esempio `LIGHTS-1_P`, `LIGHTS-2_P`) |
+| N       | no            | un numero da indicare nel caso siano presenti più istanze dello stesso tipo (ad esempio `LIGHTS1_P`, `LIGHTS2_P`)   |
 | P       | no            | **solo per impianti trifase** è una delle lettere 'A', 'B', 'C', 'N' ad indicare le fasi A, B, e C ed il neutro     |
 | UNIT    | si            | P per *Potenza* oppure V per *Volt*                                                                                 |
 
@@ -62,10 +62,14 @@ generazione, la convenzione è di comunicare la potenza e quindi i watt**.
 La corrispondenza tra lettera usata nel nome l'unità da selezionare nella
 configurazione dello IoTaWatt è nella seguente tabella.
 
-| Lettera | Misura   | Unità IoTaWatt |
-| ---     | ---      | ---            |
-| P       | Potenza  | W              |
-| V       | Tensione | V              |
+| Lettera | Misura                | Unità IoTaWatt |
+| ---     | ---                   | ---            |
+| P       | Potenza               | W              |
+| V       | Tensione              | V              |
+| F       | Frequenza             | Hz             |
+| PF      | Power Factor          |                |
+| S       | Potenza Apparente     | VA             |
+| I       | Intensità di Corrente | A              |
 
 ### Polarità delle potenze
 
@@ -78,10 +82,10 @@ configurazione dello IoTaWatt è nella seguente tabella.
 | ----   | -----------                                                                                                                        | -------    |
 | LINE   | Scambio netto con la rete elettrica; **positivo in assorbimento**, **negativo in caso di immissione** di eccedenze da generazione. | `LINE_P`   |
 | LOAD   | Assorbimento totale da tutti i carichi                                                                                             | `LOAD_P`   |
-| LINE-A | Fase 1 - per impianti trifase                                                                                                      | `LINE-A_P` |
-| LINE-B | Fase 2 - per impianti trifase                                                                                                      | `LINE-B_P` |
-| LINE-C | Fase 3 - per impianti trifase                                                                                                      | `LINE-C_P` |
-| LINE-N | Neutro - per impianti trifase                                                                                                      | `LINE-N_P` |
+| LINEA | Fase 1 - per impianti trifase                                                                                                      | `LINEA_P` |
+| LINEB | Fase 2 - per impianti trifase                                                                                                      | `LINEB_P` |
+| LINEC | Fase 3 - per impianti trifase                                                                                                      | `LINEC_P` |
+| LINEN | Neutro - per impianti trifase                                                                                                      | `LINEN_P` |
 | V      | Tensione                                                                                                                           | `V_V`      |
 
 
